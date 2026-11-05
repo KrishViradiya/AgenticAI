@@ -1,0 +1,1048 @@
+{
+  "info": {
+    "id": "ses_e58828af4ffesd8tu40joGem3h",
+    "slug": "crisp-star",
+    "projectID": "global",
+    "directory": "C:\\Users\\krish\\Downloads\\lab1\\lab1\\task1_opencode",
+    "path": "Users/krish/Downloads/lab1/lab1/task1_opencode",
+    "title": "Hero tagline and playful hover effects for AI/software site",
+    "agent": "build",
+    "model": {
+      "id": "openai.gpt-6-luna",
+      "providerID": "upb"
+    },
+    "version": "1.19.5",
+    "summary": {
+      "additions": 0,
+      "deletions": 0,
+      "files": 0
+    },
+    "cost": 0.00501182,
+    "tokens": {
+      "input": 18501,
+      "output": 2598,
+      "reasoning": 1305,
+      "cache": {
+        "read": 121022,
+        "write": 0
+      }
+    },
+    "time": {
+      "created": 1793811379467,
+      "updated": 1793811668052
+    }
+  },
+  "messages": [
+    {
+      "info": {
+        "role": "user",
+        "time": {
+          "created": 1793811379488
+        },
+        "agent": "build",
+        "model": {
+          "providerID": "upb",
+          "modelID": "openai.gpt-6-luna"
+        },
+        "summary": {
+          "diffs": []
+        },
+        "id": "msg_1a77d7520001pb7giBxMvuuoRr",
+        "sessionID": "ses_e58828af4ffesd8tu40joGem3h"
+      },
+      "parts": [
+        {
+          "type": "text",
+          "text": "Read AGENTS.md. Improve site/index.src.html in two ways, keep everything else as it is:\n\n1. Hero tagline: replace the line \"Five computer scientists, a suspicious amount of chai...\" with something shorter, wittier and about our topic (AI and software engineering). Give me 3 options in chat, use the best one on the page.\n\n2. Hover effects: add playful but smooth hover effects, e.g. member cards lift and tilt slightly with a soft shadow, photos zoom a little, the hot take box wiggles or glows, buttons and links get a nice transition. Make them work in day and night mode, and turn them off for users with prefers-reduced-motion.\n\nThen embed and check again. ",
+          "id": "prt_1a77d7522001KHEkSnvy4Lu5q2",
+          "sessionID": "ses_e58828af4ffesd8tu40joGem3h",
+          "messageID": "msg_1a77d7520001pb7giBxMvuuoRr"
+        }
+      ]
+    },
+    {
+      "info": {
+        "parentID": "msg_1a77d7520001pb7giBxMvuuoRr",
+        "role": "assistant",
+        "mode": "build",
+        "agent": "build",
+        "path": {
+          "cwd": "C:\\Users\\krish\\Downloads\\lab1\\lab1\\task1_opencode",
+          "root": "/"
+        },
+        "cost": 0.0009664,
+        "tokens": {
+          "total": 8872,
+          "input": 8674,
+          "output": 89,
+          "reasoning": 109,
+          "cache": {
+            "write": 0,
+            "read": 0
+          }
+        },
+        "modelID": "openai.gpt-6-luna",
+        "providerID": "upb",
+        "time": {
+          "created": 1793811379507,
+          "completed": 1793811383600
+        },
+        "finish": "tool-calls",
+        "id": "msg_1a77d7533001pnsscFTT5Zfroh",
+        "sessionID": "ses_e58828af4ffesd8tu40joGem3h"
+      },
+      "parts": [
+        {
+          "type": "step-start",
+          "id": "prt_1a77d802c001NkTJUYRtYIHbHH",
+          "sessionID": "ses_e58828af4ffesd8tu40joGem3h",
+          "messageID": "msg_1a77d7533001pnsscFTT5Zfroh"
+        },
+        {
+          "type": "tool",
+          "tool": "todowrite",
+          "callID": "call_n4gUzejMmJKqzhycIzc6gmgf",
+          "state": {
+            "status": "completed",
+            "input": {
+              "todos": [
+                {
+                  "content": "Inspect the team-site instructions and current source HTML",
+                  "status": "in_progress",
+                  "priority": "high"
+                },
+                {
+                  "content": "Choose and apply a shorter AI/software-engineering tagline and reduced-motion-aware hover effects",
+                  "status": "pending",
+                  "priority": "high"
+                },
+                {
+                  "content": "Embed images and run the required site check",
+                  "status": "pending",
+                  "priority": "high"
+                }
+              ]
+            },
+            "output": "[\n  {\n    \"content\": \"Inspect the team-site instructions and current source HTML\",\n    \"status\": \"in_progress\",\n    \"priority\": \"high\"\n  },\n  {\n    \"content\": \"Choose and apply a shorter AI/software-engineering tagline and reduced-motion-aware hover effects\",\n    \"status\": \"pending\",\n    \"priority\": \"high\"\n  },\n  {\n    \"content\": \"Embed images and run the required site check\",\n    \"status\": \"pending\",\n    \"priority\": \"high\"\n  }\n]",
+            "metadata": {
+              "todos": [
+                {
+                  "content": "Inspect the team-site instructions and current source HTML",
+                  "status": "in_progress",
+                  "priority": "high"
+                },
+                {
+                  "content": "Choose and apply a shorter AI/software-engineering tagline and reduced-motion-aware hover effects",
+                  "status": "pending",
+                  "priority": "high"
+                },
+                {
+                  "content": "Embed images and run the required site check",
+                  "status": "pending",
+                  "priority": "high"
+                }
+              ],
+              "truncated": false
+            },
+            "title": "3 todos",
+            "time": {
+              "start": 1793811382959,
+              "end": 1793811382963
+            }
+          },
+          "id": "prt_1a77d8030001XbjJjlCVMqTTOF",
+          "sessionID": "ses_e58828af4ffesd8tu40joGem3h",
+          "messageID": "msg_1a77d7533001pnsscFTT5Zfroh"
+        },
+        {
+          "reason": "tool-calls",
+          "type": "step-finish",
+          "tokens": {
+            "total": 8872,
+            "input": 8674,
+            "output": 89,
+            "reasoning": 109,
+            "cache": {
+              "write": 0,
+              "read": 0
+            }
+          },
+          "cost": 0.0009664,
+          "id": "prt_1a77d85290011kolat2kArPPca",
+          "sessionID": "ses_e58828af4ffesd8tu40joGem3h",
+          "messageID": "msg_1a77d7533001pnsscFTT5Zfroh"
+        }
+      ]
+    },
+    {
+      "info": {
+        "parentID": "msg_1a77d7520001pb7giBxMvuuoRr",
+        "role": "assistant",
+        "mode": "build",
+        "agent": "build",
+        "path": {
+          "cwd": "C:\\Users\\krish\\Downloads\\lab1\\lab1\\task1_opencode",
+          "root": "/"
+        },
+        "cost": 0.00018631,
+        "tokens": {
+          "total": 9039,
+          "input": 211,
+          "output": 157,
+          "reasoning": 0,
+          "cache": {
+            "write": 0,
+            "read": 8671
+          }
+        },
+        "modelID": "openai.gpt-6-luna",
+        "providerID": "upb",
+        "time": {
+          "created": 1793811383603,
+          "completed": 1793811386254
+        },
+        "finish": "tool-calls",
+        "id": "msg_1a77d8533001xhfAtdmZksJQMm",
+        "sessionID": "ses_e58828af4ffesd8tu40joGem3h"
+      },
+      "parts": [
+        {
+          "type": "step-start",
+          "id": "prt_1a77d8d61001hbY0sMW3isy1YS",
+          "sessionID": "ses_e58828af4ffesd8tu40joGem3h",
+          "messageID": "msg_1a77d8533001xhfAtdmZksJQMm"
+        },
+        {
+          "type": "tool",
+          "tool": "read",
+          "callID": "call_2vWlFnwFYHVK68eWtzohHYWH",
+          "state": {
+            "status": "completed",
+            "input": {
+              "filePath": "C:\\Users\\krish\\Downloads\\lab1\\lab1\\task1_opencode\\AGENTS.md"
+            },
+            "output": "<path>C:\\Users\\krish\\Downloads\\lab1\\lab1\\task1_opencode\\AGENTS.md</path>\n<type>file</type>\n<content>\n1: # Team website – instructions for the agent\n2: \n3: ## Goal\n4: Build ONE standalone file `site/index.html` that introduces our team.\n5: \n6: ## Content (read these, don't invent facts)\n7: - `content/<name>.md` – one profile per team member (ignore files starting with `_template`).\n8: - `content/_team.md` – team name and our shared view on AI and the future of software engineering.\n9: - `content/images/` – one picture per member. Run `ls content/images` to get the exact file names.\n10: \n11: ## Requirements\n12: - HTML + CSS + JavaScript only, all inline. Nothing loaded from the internet (no CDNs, web fonts, external images).\n13: - Introduce the team and every member: name, study background, interests, fun fact, AI views, hot take.\n14: - Responsive for phone and desktop (use `@media` width queries and `<meta name=\"viewport\">`).\n15: - Day/night mode toggle (a button + JavaScript that switches the theme).\n16: - A section with the team's shared view on AI and the future of software engineering.\n17: - Funny and creative, but readable.\n18: \n19: ## Images – IMPORTANT (saves tokens)\n20: - NEVER write base64 or image data yourself. NEVER open or read image files.\n21: - Write the page in `site/index.src.html`. For each picture use a placeholder:\n22:   `<img src=\"{{image:<file name>}}\" alt=\"Photo of <name>\">`\n23: - Generate the final page with:\n24:   `uv run python embed_images.py site/index.src.html --images content/images --out site/index.html`\n25: - NEVER read or edit `site/index.html` (it is huge). Always edit `site/index.src.html`, then embed again.\n26: \n27: ## Check\n28: After every change run the embed command, then:\n29: `uv run python check_site.py site/index.html --content content`\n30: Fix all failures before you say you are done.\n31: \n32: ## Working style\n33: - Keep answers short. Don't print the whole file in chat.\n34: - Only edit files inside `site/`. Never touch `content/`, the Python scripts or `opencode.json`.\n\n(End of file - total 34 lines)\n</content>",
+            "metadata": {
+              "preview": "# Team website – instructions for the agent\n\n## Goal\nBuild ONE standalone file `site/index.html` that introduces our team.\n\n## Content (read these, don't invent facts)\n- `content/<name>.md` – one profile per team member (ignore files starting with `_template`).\n- `content/_team.md` – team name and our shared view on AI and the future of software engineering.\n- `content/images/` – one picture per member. Run `ls content/images` to get the exact file names.\n\n## Requirements\n- HTML + CSS + JavaScript only, all inline. Nothing loaded from the internet (no CDNs, web fonts, external images).\n- Introduce the team and every member: name, study background, interests, fun fact, AI views, hot take.\n- Responsive for phone and desktop (use `@media` width queries and `<meta name=\"viewport\">`).\n- Day/night mode toggle (a button + JavaScript that switches the theme).\n- A section with the team's shared view on AI and the future of software engineering.\n- Funny and creative, but readable.\n\n## Images – IMPORTANT (saves tokens)\n- NEVER write base64 or image data yourself. NEVER open or read image files.",
+              "truncated": false,
+              "loaded": [],
+              "display": {
+                "type": "file",
+                "path": "C:\\Users\\krish\\Downloads\\lab1\\lab1\\task1_opencode\\AGENTS.md",
+                "text": "# Team website – instructions for the agent\n\n## Goal\nBuild ONE standalone file `site/index.html` that introduces our team.\n\n## Content (read these, don't invent facts)\n- `content/<name>.md` – one profile per team member (ignore files starting with `_template`).\n- `content/_team.md` – team name and our shared view on AI and the future of software engineering.\n- `content/images/` – one picture per member. Run `ls content/images` to get the exact file names.\n\n## Requirements\n- HTML + CSS + JavaScript only, all inline. Nothing loaded from the internet (no CDNs, web fonts, external images).\n- Introduce the team and every member: name, study background, interests, fun fact, AI views, hot take.\n- Responsive for phone and desktop (use `@media` width queries and `<meta name=\"viewport\">`).\n- Day/night mode toggle (a button + JavaScript that switches the theme).\n- A section with the team's shared view on AI and the future of software engineering.\n- Funny and creative, but readable.\n\n## Images – IMPORTANT (saves tokens)\n- NEVER write base64 or image data yourself. NEVER open or read image files.\n- Write the page in `site/index.src.html`. For each picture use a placeholder:\n  `<img src=\"{{image:<file name>}}\" alt=\"Photo of <name>\">`\n- Generate the final page with:\n  `uv run python embed_images.py site/index.src.html --images content/images --out site/index.html`\n- NEVER read or edit `site/index.html` (it is huge). Always edit `site/index.src.html`, then embed again.\n\n## Check\nAfter every change run the embed command, then:\n`uv run python check_site.py site/index.html --content content`\nFix all failures before you say you are done.\n\n## Working style\n- Keep answers short. Don't print the whole file in chat.\n- Only edit files inside `site/`. Never touch `content/`, the Python scripts or `opencode.json`.",
+                "lineStart": 1,
+                "lineEnd": 34,
+                "totalLines": 34,
+                "truncated": false
+              }
+            },
+            "title": "Users\\krish\\Downloads\\lab1\\lab1\\task1_opencode\\AGENTS.md",
+            "time": {
+              "start": 1793811385738,
+              "end": 1793811385745
+            }
+          },
+          "id": "prt_1a77d8d63001kce0Uk7EIuYVKa",
+          "sessionID": "ses_e58828af4ffesd8tu40joGem3h",
+          "messageID": "msg_1a77d8533001xhfAtdmZksJQMm"
+        },
+        {
+          "type": "tool",
+          "tool": "read",
+          "callID": "call_x2ifROBRcJlQragrbz03SqIX",
+          "state": {
+            "status": "completed",
+            "input": {
+              "filePath": "C:\\Users\\krish\\Downloads\\lab1\\lab1\\task1_opencode\\site\\index.src.html"
+            },
+            "output": "<path>C:\\Users\\krish\\Downloads\\lab1\\lab1\\task1_opencode\\site\\index.src.html</path>\n<type>file</type>\n<content>\n1: <!doctype html>\n2: <html lang=\"en\">\n3: <head>\n4:   <meta charset=\"utf-8\">\n5:   <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n6:   <meta name=\"theme-color\" content=\"#f5f1e8\">\n7:   <title>The Prompt Engineers Who Can't Center a Div</title>\n8:   <style>\n9:     :root {\n10:       color-scheme: light;\n11:       --bg: #f5f1e8;\n12:       --paper: #fffdf8;\n13:       --ink: #20211e;\n14:       --muted: #67675f;\n15:       --line: #dcd8cd;\n16:       --accent: #ef6848;\n17:       --accent-dark: #bb422c;\n18:       --lime: #d7ef72;\n19:       --blue: #b9d9ec;\n20:       --lavender: #d9c9ee;\n21:       --shadow: 0 18px 48px rgba(54, 46, 30, .09);\n22:     }\n23:     * { box-sizing: border-box; }\n24:     html { scroll-behavior: smooth; }\n25:     body {\n26:       margin: 0;\n27:       background: var(--bg);\n28:       color: var(--ink);\n29:       font-family: \"Trebuchet MS\", \"Segoe UI\", sans-serif;\n30:       line-height: 1.55;\n31:       transition: background .25s ease, color .25s ease;\n32:     }\n33:     body.night {\n34:       color-scheme: dark;\n35:       --bg: #171a19;\n36:       --paper: #222725;\n37:       --ink: #f5f1e8;\n38:       --muted: #b1b8b1;\n39:       --line: #3c4540;\n40:       --accent: #ff8968;\n41:       --accent-dark: #ffad95;\n42:       --lime: #506128;\n43:       --blue: #294554;\n44:       --lavender: #493d59;\n45:       --shadow: 0 18px 48px rgba(0, 0, 0, .24);\n46:     }\n47:     a { color: inherit; }\n48:     .shell { width: min(1120px, calc(100% - 48px)); margin-inline: auto; }\n49:     .topbar { display: flex; align-items: center; justify-content: space-between; padding: 22px 0; }\n50:     .wordmark { display: inline-flex; align-items: center; gap: 10px; font-size: .84rem; font-weight: 900; letter-spacing: .09em; text-transform: uppercase; }\n51:     .mark { display: grid; width: 34px; height: 34px; place-items: center; border-radius: 11px; background: var(--ink); color: var(--bg); font-size: 1.2rem; transform: rotate(-7deg); }\n52:     .theme-toggle { border: 1px solid var(--line); border-radius: 999px; padding: 10px 15px; background: var(--paper); color: var(--ink); font: inherit; font-size: .84rem; font-weight: 800; cursor: pointer; }\n53:     .theme-toggle:hover { border-color: var(--accent); }\n54:     .hero { position: relative; overflow: hidden; padding: clamp(44px, 8vw, 104px) clamp(25px, 7vw, 86px); border: 1px solid var(--line); border-radius: 30px; background: var(--paper); box-shadow: var(--shadow); }\n55:     .hero::after { content: \"</>\"; position: absolute; right: 4%; bottom: -44px; color: color-mix(in srgb, var(--accent) 13%, transparent); font: 900 clamp(130px, 23vw, 270px)/1 monospace; transform: rotate(-12deg); pointer-events: none; }\n56:     .eyebrow { margin: 0 0 16px; color: var(--accent-dark); font-size: .75rem; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; }\n57:     h1, h2, h3, p { margin-top: 0; }\n58:     h1 { position: relative; z-index: 1; max-width: 790px; margin-bottom: 20px; font-size: clamp(2.8rem, 8.5vw, 6.7rem); font-weight: 900; letter-spacing: -.075em; line-height: .92; }\n59:     h1 span { color: var(--accent); }\n60:     .hero-copy { position: relative; z-index: 1; max-width: 570px; margin-bottom: 28px; color: var(--muted); font-size: clamp(1rem, 2vw, 1.16rem); }\n61:     .hero-meta { position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: 10px; }\n62:     .pill { border: 1px solid var(--line); border-radius: 999px; padding: 7px 12px; background: var(--bg); font-size: .76rem; font-weight: 800; }\n63:     .pill.hot { border-color: transparent; background: var(--lime); }\n64:     .section-head { display: flex; align-items: end; justify-content: space-between; gap: 20px; margin: 94px 0 24px; }\n65:     .section-head h2 { margin: 0; font-size: clamp(2rem, 5vw, 3.4rem); letter-spacing: -.06em; line-height: 1; }\n66:     .section-head p { max-width: 320px; margin: 0; color: var(--muted); font-size: .92rem; }\n67:     .team-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }\n68:     .card { overflow: hidden; border: 1px solid var(--line); border-radius: 22px; background: var(--paper); box-shadow: 0 8px 25px rgba(54, 46, 30, .04); }\n69:     .card-top { display: grid; grid-template-columns: 150px 1fr; align-items: center; gap: 22px; padding: 22px; border-bottom: 1px solid var(--line); }\n70:     .portrait { width: 150px; aspect-ratio: 1; border-radius: 16px; object-fit: cover; background: var(--blue); }\n71:     .card:nth-child(2) .portrait { background: var(--lavender); }\n72:     .card:nth-child(3) .portrait { background: var(--lime); }\n73:     .card:nth-child(4) .portrait { background: var(--blue); }\n74:     .card:nth-child(5) .portrait { background: var(--lavender); }\n75:     .member-number { display: inline-block; margin-bottom: 8px; color: var(--accent-dark); font: 800 .75rem/1 monospace; letter-spacing: .08em; }\n76:     .card h3 { margin-bottom: 6px; font-size: 1.8rem; letter-spacing: -.05em; line-height: 1; }\n77:     .study { margin: 0; color: var(--muted); font-size: .9rem; }\n78:     .card-body { padding: 20px 22px 24px; }\n79:     .interests { margin: 0 0 18px; color: var(--muted); font-size: .9rem; }\n80:     .interests strong { color: var(--ink); }\n81:     .detail { padding-top: 14px; border-top: 1px dashed var(--line); }\n82:     .detail + .detail { margin-top: 14px; }\n83:     .detail-label { display: block; margin-bottom: 4px; color: var(--accent-dark); font-size: .68rem; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; }\n84:     .detail p { margin: 0; font-size: .89rem; }\n85:     .hot-take { margin: 18px 0 0; padding: 14px 16px; border-radius: 12px; background: var(--lime); font-size: .91rem; font-weight: 800; }\n86:     .hot-take span { display: block; margin-bottom: 4px; font-size: .66rem; letter-spacing: .13em; text-transform: uppercase; }\n87:     .manifesto { position: relative; display: grid; grid-template-columns: .8fr 1.2fr; gap: 40px; margin: 94px 0 54px; padding: clamp(28px, 6vw, 62px); border-radius: 28px; background: var(--ink); color: var(--bg); }\n88:     .manifesto .eyebrow { color: var(--accent); }\n89:     .manifesto h2 { max-width: 360px; margin: 0; font-size: clamp(2rem, 5vw, 3.9rem); letter-spacing: -.07em; line-height: .98; }\n90:     .manifesto-copy { align-self: center; }\n91:     .manifesto-copy p { margin-bottom: 18px; font-size: 1.03rem; }\n92:     .manifesto-copy p:last-child { margin-bottom: 0; color: color-mix(in srgb, var(--bg) 72%, transparent); }\n93:     footer { display: flex; justify-content: space-between; gap: 15px; padding: 24px 0 38px; border-top: 1px solid var(--line); color: var(--muted); font-size: .78rem; }\n94:     footer strong { color: var(--ink); }\n95:     @media (max-width: 760px) {\n96:       .shell { width: min(100% - 30px, 600px); }\n97:       .hero { border-radius: 22px; }\n98:       .section-head { align-items: start; flex-direction: column; margin-top: 70px; }\n99:       .team-grid { grid-template-columns: 1fr; }\n100:       .card-top { grid-template-columns: 120px 1fr; gap: 17px; padding: 17px; }\n101:       .portrait { width: 120px; border-radius: 13px; }\n102:       .card-body { padding: 18px 17px 20px; }\n103:       .manifesto { grid-template-columns: 1fr; gap: 22px; margin-top: 70px; }\n104:     }\n105:     @media (max-width: 390px) {\n106:       .shell { width: calc(100% - 22px); }\n107:       .wordmark { font-size: .69rem; }\n108:       .theme-toggle { padding: 8px 10px; font-size: .76rem; }\n109:       .card-top { grid-template-columns: 92px 1fr; gap: 13px; }\n110:       .portrait { width: 92px; }\n111:       .card h3 { font-size: 1.55rem; }\n112:       footer { flex-direction: column; }\n113:     }\n114:   </style>\n115: </head>\n116: <body>\n117:   <header class=\"shell topbar\">\n118:     <a class=\"wordmark\" href=\"#top\" aria-label=\"Team home\"><span class=\"mark\">{ }</span> A very real team site</a>\n119:     <button class=\"theme-toggle\" id=\"themeToggle\" type=\"button\" aria-pressed=\"false\">☾ Night mode</button>\n120:   </header>\n121: \n122:   <main id=\"top\" class=\"shell\">\n123:     <section class=\"hero\" aria-labelledby=\"team-title\">\n124:       <p class=\"eyebrow\">Paderborn University · M.Sc. Computer Science</p>\n125:       <h1 id=\"team-title\">The Prompt Engineers <span>Who Can't Center a Div</span></h1>\n126:       <p class=\"hero-copy\">Five computer scientists, a suspicious amount of chai, and a group project that is—in a refreshing change of pace—actually about the group.</p>\n127:       <div class=\"hero-meta\" aria-label=\"Team facts\">\n128:         <span class=\"pill hot\">5 humans</span><span class=\"pill\">1 shared future</span><span class=\"pill\">0 divs centered (allegedly)</span>\n129:       </div>\n130:     </section>\n131: \n132:     <div class=\"section-head\">\n133:       <h2>Meet the humans<br>behind the prompts.</h2>\n134:       <p>Each comes with a specialty, a strong opinion, and at least one reason an AI still needs supervision.</p>\n135:     </div>\n136: \n137:     <section class=\"team-grid\" aria-label=\"Team members\">\n138:       <article class=\"card\">\n139:         <div class=\"card-top\"><img class=\"portrait\" src=\"{{image:nirav.jpg}}\" alt=\"Photo of Nirav\"><div><span class=\"member-number\">01 / THE SYSTEMS PERSON</span><h3>Nirav</h3><p class=\"study\">M.Sc. Computer Science, 1st semester at Paderborn University; B.Tech. in Computer Engineering.</p></div></div>\n140:         <div class=\"card-body\"><p class=\"interests\"><strong>Into:</strong> Backend systems, table tennis, and trying every street food stall at a new place.</p>\n141:           <div class=\"detail\"><span class=\"detail-label\">Fun fact</span><p>I have named every one of my laptops after a Bollywood villain.</p></div>\n142:           <div class=\"detail\"><span class=\"detail-label\">AI, today</span><p>AI is a fast junior developer that never gets tired but also never says \"I'm not sure\". It saves me hours on boilerplate, but I still read every line before it goes anywhere near main.</p></div>\n143:           <div class=\"detail\"><span class=\"detail-label\">In 5–10 years</span><p>Writing code will be the easy part. The hard part will be designing systems, defining what \"correct\" means and keeping agents from breaking each other's work.</p></div>\n144:           <blockquote class=\"hot-take\"><span>Hot take</span>An AI that writes 1,000 lines a minute just means 1,000 lines a minute someone has to review.</blockquote>\n145:         </div>\n146:       </article>\n147: \n148:       <article class=\"card\">\n149:         <div class=\"card-top\"><img class=\"portrait\" src=\"{{image:nevil.jpg}}\" alt=\"Photo of Nevil\"><div><span class=\"member-number\">02 / THE PIXEL PERFECTIONIST</span><h3>Nevil</h3><p class=\"study\">M.Sc. Computer Science, 1st semester at Paderborn University; B.E. in Computer Engineering.</p></div></div>\n150:         <div class=\"card-body\"><p class=\"interests\"><strong>Into:</strong> Frontend and UI design, photography, and badminton.</p>\n151:           <div class=\"detail\"><span class=\"detail-label\">Fun fact</span><p>I spend more time picking a colour palette than writing the actual code.</p></div>\n152:           <div class=\"detail\"><span class=\"detail-label\">AI, today</span><p>AI can produce a working UI in minutes, but \"working\" and \"pleasant to use\" are not the same thing. It still needs a human eye for design, accessibility and the small details users notice.</p></div>\n153:           <div class=\"detail\"><span class=\"detail-label\">In 5–10 years</span><p>Building software will feel more like directing than typing. Taste, user empathy and clear communication will matter more than knowing a framework.</p></div>\n154:           <blockquote class=\"hot-take\"><span>Hot take</span>AI can center a div on the first try, which already makes it better than half of us.</blockquote>\n155:         </div>\n156:       </article>\n157: \n158:       <article class=\"card\">\n159:         <div class=\"card-top\"><img class=\"portrait\" src=\"{{image:krish.jpg}}\" alt=\"Photo of Krish\"><div><span class=\"member-number\">03 / THE CHAI-POWERED BUILDER</span><h3>Krish</h3><p class=\"study\">M.Sc. Computer Science, 1st semester at Paderborn University.</p></div></div>\n160:         <div class=\"card-body\"><p class=\"interests\"><strong>Into:</strong> Building side projects, cricket, and late-night debugging sessions with too much chai.</p>\n161:           <div class=\"detail\"><span class=\"detail-label\">Fun fact</span><p>I once fixed a production bug from my phone while waiting in a supermarket queue.</p></div>\n162:           <div class=\"detail\"><span class=\"detail-label\">AI, today</span><p>AI assistants are great at boilerplate and first drafts, but they still need someone who understands the system to check their work. They speed me up most when I already know what I want.</p></div>\n163:           <div class=\"detail\"><span class=\"detail-label\">In 5–10 years</span><p>Engineers will spend less time typing code and more time specifying, reviewing and testing what agents produce. Knowing <em>why</em> something should be built will matter more than knowing the syntax.</p></div>\n164:           <blockquote class=\"hot-take\"><span>Hot take</span>The best prompt engineer on your team is just the person who writes the clearest tickets.</blockquote>\n165:         </div>\n166:       </article>\n167: \n168:       <article class=\"card\">\n169:         <div class=\"card-top\"><img class=\"portrait\" src=\"{{image:keval.jpg}}\" alt=\"Photo of Keval\"><div><span class=\"member-number\">04 / THE PIPELINE WHISPERER</span><h3>Keval</h3><p class=\"study\">M.Sc. Computer Science, 1st semester at Paderborn University; B.Tech. in Computer Science.</p></div></div>\n170:         <div class=\"card-body\"><p class=\"interests\"><strong>Into:</strong> Cloud and DevOps, cricket, and long bike rides along the Lippe.</p>\n171:           <div class=\"detail\"><span class=\"detail-label\">Fun fact</span><p>My CI pipeline has a better success rate than my alarm clock.</p></div>\n172:           <div class=\"detail\"><span class=\"detail-label\">AI, today</span><p>AI is great for scripts, configs and debugging error messages, but it happily suggests insecure shortcuts. Security and operations still need a human who understands the risks.</p></div>\n173:           <div class=\"detail\"><span class=\"detail-label\">In 5–10 years</span><p>Agents will deploy, monitor and fix systems on their own, so the real job will be setting the guardrails: permissions, tests and rollback plans.</p></div>\n174:           <blockquote class=\"hot-take\"><span>Hot take</span>Giving an AI agent production access without a sandbox is just chaos engineering with extra steps.</blockquote>\n175:         </div>\n176:       </article>\n177: \n178:       <article class=\"card\">\n179:         <div class=\"card-top\"><img class=\"portrait\" src=\"{{image:harsh.jpg}}\" alt=\"Photo of Harsh\"><div><span class=\"member-number\">05 / THE ML SIDE-QUESTER</span><h3>Harsh</h3><p class=\"study\">M.Sc. Computer Science, 1st semester at Paderborn University; B.E. in Information Technology.</p></div></div>\n180:         <div class=\"card-body\"><p class=\"interests\"><strong>Into:</strong> Machine learning, football, and cooking dishes my mother would not approve of.</p>\n181:           <div class=\"detail\"><span class=\"detail-label\">Fun fact</span><p>I have more half-finished ML side projects than finished meals this semester.</p></div>\n182:           <div class=\"detail\"><span class=\"detail-label\">AI, today</span><p>The models are surprisingly good at explaining code and writing tests, but they are weak at understanding why a system was built the way it was. They work best when the human brings the context.</p></div>\n183:           <div class=\"detail\"><span class=\"detail-label\">In 5–10 years</span><p>Every developer will manage a small team of agents. Good engineers will be the ones who can break a problem into clear tasks and verify the results quickly.</p></div>\n184:           <blockquote class=\"hot-take\"><span>Hot take</span>Most \"AI bugs\" are just human requirements that were never written down.</blockquote>\n185:         </div>\n186:       </article>\n187:     </section>\n188: \n189:     <section class=\"manifesto\" aria-labelledby=\"manifesto-title\">\n190:       <div><p class=\"eyebrow\">The team's shared view</p><h2 id=\"manifesto-title\">AI can ship the draft.<br>Humans own the direction.</h2></div>\n191:       <div class=\"manifesto-copy\"><p>AI agents are already good teammates for boilerplate, tests and first drafts, but they still need humans who understand the system, set the direction and check the result.</p><p>We expect the job to shift from writing code to specifying, reviewing and verifying it. The engineers who do well will be the ones who can explain clearly what they want and notice quickly when the answer is wrong.</p></div>\n192:     </section>\n193:   </main>\n194: \n195:   <footer class=\"shell\"><span><strong>The Prompt Engineers Who Can't Center a Div</strong> · Built by the humans in the loop.</span><span>Made with care, CSS, and review comments.</span></footer>\n196:   <script>\n197:     const toggle = document.getElementById('themeToggle');\n198:     toggle.addEventListener('click', () => {\n199:       const isNight = document.body.classList.toggle('night');\n200:       toggle.setAttribute('aria-pressed', String(isNight));\n201:       toggle.textContent = isNight ? '☀ Day mode' : '☾ Night mode';\n202:       document.querySelector('meta[name=\"theme-color\"]').content = isNight ? '#171a19' : '#f5f1e8';\n203:     });\n204:   </script>\n205: </body>\n206: </html>\n\n(End of file - total 206 lines)\n</content>",
+            "metadata": {
+              "preview": "<!doctype html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <meta name=\"theme-color\" content=\"#f5f1e8\">\n  <title>The Prompt Engineers Who Can't Center a Div</title>\n  <style>\n    :root {\n      color-scheme: light;\n      --bg: #f5f1e8;\n      --paper: #fffdf8;\n      --ink: #20211e;\n      --muted: #67675f;\n      --line: #dcd8cd;\n      --accent: #ef6848;\n      --accent-dark: #bb422c;\n      --lime: #d7ef72;\n      --blue: #b9d9ec;\n      --lavender: #d9c9ee;",
+              "truncated": false,
+              "loaded": [],
+              "display": {
+                "type": "file",
+                "path": "C:\\Users\\krish\\Downloads\\lab1\\lab1\\task1_opencode\\site\\index.src.html",
+                "text": "<!doctype html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"utf-8\">\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n  <meta name=\"theme-color\" content=\"#f5f1e8\">\n  <title>The Prompt Engineers Who Can't Center a Div</title>\n  <style>\n    :root {\n      color-scheme: light;\n      --bg: #f5f1e8;\n      --paper: #fffdf8;\n      --ink: #20211e;\n      --muted: #67675f;\n      --line: #dcd8cd;\n      --accent: #ef6848;\n      --accent-dark: #bb422c;\n      --lime: #d7ef72;\n      --blue: #b9d9ec;\n      --lavender: #d9c9ee;\n      --shadow: 0 18px 48px rgba(54, 46, 30, .09);\n    }\n    * { box-sizing: border-box; }\n    html { scroll-behavior: smooth; }\n    body {\n      margin: 0;\n      background: var(--bg);\n      color: var(--ink);\n      font-family: \"Trebuchet MS\", \"Segoe UI\", sans-serif;\n      line-height: 1.55;\n      transition: background .25s ease, color .25s ease;\n    }\n    body.night {\n      color-scheme: dark;\n      --bg: #171a19;\n      --paper: #222725;\n      --ink: #f5f1e8;\n      --muted: #b1b8b1;\n      --line: #3c4540;\n      --accent: #ff8968;\n      --accent-dark: #ffad95;\n      --lime: #506128;\n      --blue: #294554;\n      --lavender: #493d59;\n      --shadow: 0 18px 48px rgba(0, 0, 0, .24);\n    }\n    a { color: inherit; }\n    .shell { width: min(1120px, calc(100% - 48px)); margin-inline: auto; }\n    .topbar { display: flex; align-items: center; justify-content: space-between; padding: 22px 0; }\n    .wordmark { display: inline-flex; align-items: center; gap: 10px; font-size: .84rem; font-weight: 900; letter-spacing: .09em; text-transform: uppercase; }\n    .mark { display: grid; width: 34px; height: 34px; place-items: center; border-radius: 11px; background: var(--ink); color: var(--bg); font-size: 1.2rem; transform: rotate(-7deg); }\n    .theme-toggle { border: 1px solid var(--line); border-radius: 999px; padding: 10px 15px; background: var(--paper); color: var(--ink); font: inherit; font-size: .84rem; font-weight: 800; cursor: pointer; }\n    .theme-toggle:hover { border-color: var(--accent); }\n    .hero { position: relative; overflow: hidden; padding: clamp(44px, 8vw, 104px) clamp(25px, 7vw, 86px); border: 1px solid var(--line); border-radius: 30px; background: var(--paper); box-shadow: var(--shadow); }\n    .hero::after { content: \"</>\"; position: absolute; right: 4%; bottom: -44px; color: color-mix(in srgb, var(--accent) 13%, transparent); font: 900 clamp(130px, 23vw, 270px)/1 monospace; transform: rotate(-12deg); pointer-events: none; }\n    .eyebrow { margin: 0 0 16px; color: var(--accent-dark); font-size: .75rem; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; }\n    h1, h2, h3, p { margin-top: 0; }\n    h1 { position: relative; z-index: 1; max-width: 790px; margin-bottom: 20px; font-size: clamp(2.8rem, 8.5vw, 6.7rem); font-weight: 900; letter-spacing: -.075em; line-height: .92; }\n    h1 span { color: var(--accent); }\n    .hero-copy { position: relative; z-index: 1; max-width: 570px; margin-bottom: 28px; color: var(--muted); font-size: clamp(1rem, 2vw, 1.16rem); }\n    .hero-meta { position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: 10px; }\n    .pill { border: 1px solid var(--line); border-radius: 999px; padding: 7px 12px; background: var(--bg); font-size: .76rem; font-weight: 800; }\n    .pill.hot { border-color: transparent; background: var(--lime); }\n    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 20px; margin: 94px 0 24px; }\n    .section-head h2 { margin: 0; font-size: clamp(2rem, 5vw, 3.4rem); letter-spacing: -.06em; line-height: 1; }\n    .section-head p { max-width: 320px; margin: 0; color: var(--muted); font-size: .92rem; }\n    .team-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }\n    .card { overflow: hidden; border: 1px solid var(--line); border-radius: 22px; background: var(--paper); box-shadow: 0 8px 25px rgba(54, 46, 30, .04); }\n    .card-top { display: grid; grid-template-columns: 150px 1fr; align-items: center; gap: 22px; padding: 22px; border-bottom: 1px solid var(--line); }\n    .portrait { width: 150px; aspect-ratio: 1; border-radius: 16px; object-fit: cover; background: var(--blue); }\n    .card:nth-child(2) .portrait { background: var(--lavender); }\n    .card:nth-child(3) .portrait { background: var(--lime); }\n    .card:nth-child(4) .portrait { background: var(--blue); }\n    .card:nth-child(5) .portrait { background: var(--lavender); }\n    .member-number { display: inline-block; margin-bottom: 8px; color: var(--accent-dark); font: 800 .75rem/1 monospace; letter-spacing: .08em; }\n    .card h3 { margin-bottom: 6px; font-size: 1.8rem; letter-spacing: -.05em; line-height: 1; }\n    .study { margin: 0; color: var(--muted); font-size: .9rem; }\n    .card-body { padding: 20px 22px 24px; }\n    .interests { margin: 0 0 18px; color: var(--muted); font-size: .9rem; }\n    .interests strong { color: var(--ink); }\n    .detail { padding-top: 14px; border-top: 1px dashed var(--line); }\n    .detail + .detail { margin-top: 14px; }\n    .detail-label { display: block; margin-bottom: 4px; color: var(--accent-dark); font-size: .68rem; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; }\n    .detail p { margin: 0; font-size: .89rem; }\n    .hot-take { margin: 18px 0 0; padding: 14px 16px; border-radius: 12px; background: var(--lime); font-size: .91rem; font-weight: 800; }\n    .hot-take span { display: block; margin-bottom: 4px; font-size: .66rem; letter-spacing: .13em; text-transform: uppercase; }\n    .manifesto { position: relative; display: grid; grid-template-columns: .8fr 1.2fr; gap: 40px; margin: 94px 0 54px; padding: clamp(28px, 6vw, 62px); border-radius: 28px; background: var(--ink); color: var(--bg); }\n    .manifesto .eyebrow { color: var(--accent); }\n    .manifesto h2 { max-width: 360px; margin: 0; font-size: clamp(2rem, 5vw, 3.9rem); letter-spacing: -.07em; line-height: .98; }\n    .manifesto-copy { align-self: center; }\n    .manifesto-copy p { margin-bottom: 18px; font-size: 1.03rem; }\n    .manifesto-copy p:last-child { margin-bottom: 0; color: color-mix(in srgb, var(--bg) 72%, transparent); }\n    footer { display: flex; justify-content: space-between; gap: 15px; padding: 24px 0 38px; border-top: 1px solid var(--line); color: var(--muted); font-size: .78rem; }\n    footer strong { color: var(--ink); }\n    @media (max-width: 760px) {\n      .shell { width: min(100% - 30px, 600px); }\n      .hero { border-radius: 22px; }\n      .section-head { align-items: start; flex-direction: column; margin-top: 70px; }\n      .team-grid { grid-template-columns: 1fr; }\n      .card-top { grid-template-columns: 120px 1fr; gap: 17px; padding: 17px; }\n      .portrait { width: 120px; border-radius: 13px; }\n      .card-body { padding: 18px 17px 20px; }\n      .manifesto { grid-template-columns: 1fr; gap: 22px; margin-top: 70px; }\n    }\n    @media (max-width: 390px) {\n      .shell { width: calc(100% - 22px); }\n      .wordmark { font-size: .69rem; }\n      .theme-toggle { padding: 8px 10px; font-size: .76rem; }\n      .card-top { grid-template-columns: 92px 1fr; gap: 13px; }\n      .portrait { width: 92px; }\n      .card h3 { font-size: 1.55rem; }\n      footer { flex-direction: column; }\n    }\n  </style>\n</head>\n<body>\n  <header class=\"shell topbar\">\n    <a class=\"wordmark\" href=\"#top\" aria-label=\"Team home\"><span class=\"mark\">{ }</span> A very real team site</a>\n    <button class=\"theme-toggle\" id=\"themeToggle\" type=\"button\" aria-pressed=\"false\">☾ Night mode</button>\n  </header>\n\n  <main id=\"top\" class=\"shell\">\n    <section class=\"hero\" aria-labelledby=\"team-title\">\n      <p class=\"eyebrow\">Paderborn University · M.Sc. Computer Science</p>\n      <h1 id=\"team-title\">The Prompt Engineers <span>Who Can't Center a Div</span></h1>\n      <p class=\"hero-copy\">Five computer scientists, a suspicious amount of chai, and a group project that is—in a refreshing change of pace—actually about the group.</p>\n      <div class=\"hero-meta\" aria-label=\"Team facts\">\n        <span class=\"pill hot\">5 humans</span><span class=\"pill\">1 shared future</span><span class=\"pill\">0 divs centered (allegedly)</span>\n      </div>\n    </section>\n\n    <div class=\"section-head\">\n      <h2>Meet the humans<br>behind the prompts.</h2>\n      <p>Each comes with a specialty, a strong opinion, and at least one reason an AI still needs supervision.</p>\n    </div>\n\n    <section class=\"team-grid\" aria-label=\"Team members\">\n      <article class=\"card\">\n        <div class=\"card-top\"><img class=\"portrait\" src=\"{{image:nirav.jpg}}\" alt=\"Photo of Nirav\"><div><span class=\"member-number\">01 / THE SYSTEMS PERSON</span><h3>Nirav</h3><p class=\"study\">M.Sc. Computer Science, 1st semester at Paderborn University; B.Tech. in Computer Engineering.</p></div></div>\n        <div class=\"card-body\"><p class=\"interests\"><strong>Into:</strong> Backend systems, table tennis, and trying every street food stall at a new place.</p>\n          <div class=\"detail\"><span class=\"detail-label\">Fun fact</span><p>I have named every one of my laptops after a Bollywood villain.</p></div>\n          <div class=\"detail\"><span class=\"detail-label\">AI, today</span><p>AI is a fast junior developer that never gets tired but also never says \"I'm not sure\". It saves me hours on boilerplate, but I still read every line before it goes anywhere near main.</p></div>\n          <div class=\"detail\"><span class=\"detail-label\">In 5–10 years</span><p>Writing code will be the easy part. The hard part will be designing systems, defining what \"correct\" means and keeping agents from breaking each other's work.</p></div>\n          <blockquote class=\"hot-take\"><span>Hot take</span>An AI that writes 1,000 lines a minute just means 1,000 lines a minute someone has to review.</blockquote>\n        </div>\n      </article>\n\n      <article class=\"card\">\n        <div class=\"card-top\"><img class=\"portrait\" src=\"{{image:nevil.jpg}}\" alt=\"Photo of Nevil\"><div><span class=\"member-number\">02 / THE PIXEL PERFECTIONIST</span><h3>Nevil</h3><p class=\"study\">M.Sc. Computer Science, 1st semester at Paderborn University; B.E. in Computer Engineering.</p></div></div>\n        <div class=\"card-body\"><p class=\"interests\"><strong>Into:</strong> Frontend and UI design, photography, and badminton.</p>\n          <div class=\"detail\"><span class=\"detail-label\">Fun fact</span><p>I spend more time picking a colour palette than writing the actual code.</p></div>\n          <div class=\"detail\"><span class=\"detail-label\">AI, today</span><p>AI can produce a working UI in minutes, but \"working\" and \"pleasant to use\" are not the same thing. It still needs a human eye for design, accessibility and the small details users notice.</p></div>\n          <div class=\"detail\"><span class=\"detail-label\">In 5–10 years</span><p>Building software will feel more like directing than typing. Taste, user empathy and clear communication will matter more than knowing a framework.</p></div>\n          <blockquote class=\"hot-take\"><span>Hot take</span>AI can center a div on the first try, which already makes it better than half of us.</blockquote>\n        </div>\n      </article>\n\n      <article class=\"card\">\n        <div class=\"card-top\"><img class=\"portrait\" src=\"{{image:krish.jpg}}\" alt=\"Photo of Krish\"><div><span class=\"member-number\">03 / THE CHAI-POWERED BUILDER</span><h3>Krish</h3><p class=\"study\">M.Sc. Computer Science, 1st semester at Paderborn University.</p></div></div>\n        <div class=\"card-body\"><p class=\"interests\"><strong>Into:</strong> Building side projects, cricket, and late-night debugging sessions with too much chai.</p>\n          <div class=\"detail\"><span class=\"detail-label\">Fun fact</span><p>I once fixed a production bug from my phone while waiting in a supermarket queue.</p></div>\n          <div class=\"detail\"><span class=\"detail-label\">AI, today</span><p>AI assistants are great at boilerplate and first drafts, but they still need someone who understands the system to check their work. They speed me up most when I already know what I want.</p></div>\n          <div class=\"detail\"><span class=\"detail-label\">In 5–10 years</span><p>Engineers will spend less time typing code and more time specifying, reviewing and testing what agents produce. Knowing <em>why</em> something should be built will matter more than knowing the syntax.</p></div>\n          <blockquote class=\"hot-take\"><span>Hot take</span>The best prompt engineer on your team is just the person who writes the clearest tickets.</blockquote>\n        </div>\n      </article>\n\n      <article class=\"card\">\n        <div class=\"card-top\"><img class=\"portrait\" src=\"{{image:keval.jpg}}\" alt=\"Photo of Keval\"><div><span class=\"member-number\">04 / THE PIPELINE WHISPERER</span><h3>Keval</h3><p class=\"study\">M.Sc. Computer Science, 1st semester at Paderborn University; B.Tech. in Computer Science.</p></div></div>\n        <div class=\"card-body\"><p class=\"interests\"><strong>Into:</strong> Cloud and DevOps, cricket, and long bike rides along the Lippe.</p>\n          <div class=\"detail\"><span class=\"detail-label\">Fun fact</span><p>My CI pipeline has a better success rate than my alarm clock.</p></div>\n          <div class=\"detail\"><span class=\"detail-label\">AI, today</span><p>AI is great for scripts, configs and debugging error messages, but it happily suggests insecure shortcuts. Security and operations still need a human who understands the risks.</p></div>\n          <div class=\"detail\"><span class=\"detail-label\">In 5–10 years</span><p>Agents will deploy, monitor and fix systems on their own, so the real job will be setting the guardrails: permissions, tests and rollback plans.</p></div>\n          <blockquote class=\"hot-take\"><span>Hot take</span>Giving an AI agent production access without a sandbox is just chaos engineering with extra steps.</blockquote>\n        </div>\n      </article>\n\n      <article class=\"card\">\n        <div class=\"card-top\"><img class=\"portrait\" src=\"{{image:harsh.jpg}}\" alt=\"Photo of Harsh\"><div><span class=\"member-number\">05 / THE ML SIDE-QUESTER</span><h3>Harsh</h3><p class=\"study\">M.Sc. Computer Science, 1st semester at Paderborn University; B.E. in Information Technology.</p></div></div>\n        <div class=\"card-body\"><p class=\"interests\"><strong>Into:</strong> Machine learning, football, and cooking dishes my mother would not approve of.</p>\n          <div class=\"detail\"><span class=\"detail-label\">Fun fact</span><p>I have more half-finished ML side projects than finished meals this semester.</p></div>\n          <div class=\"detail\"><span class=\"detail-label\">AI, today</span><p>The models are surprisingly good at explaining code and writing tests, but they are weak at understanding why a system was built the way it was. They work best when the human brings the context.</p></div>\n          <div class=\"detail\"><span class=\"detail-label\">In 5–10 years</span><p>Every developer will manage a small team of agents. Good engineers will be the ones who can break a problem into clear tasks and verify the results quickly.</p></div>\n          <blockquote class=\"hot-take\"><span>Hot take</span>Most \"AI bugs\" are just human requirements that were never written down.</blockquote>\n        </div>\n      </article>\n    </section>\n\n    <section class=\"manifesto\" aria-labelledby=\"manifesto-title\">\n      <div><p class=\"eyebrow\">The team's shared view</p><h2 id=\"manifesto-title\">AI can ship the draft.<br>Humans own the direction.</h2></div>\n      <div class=\"manifesto-copy\"><p>AI agents are already good teammates for boilerplate, tests and first drafts, but they still need humans who understand the system, set the direction and check the result.</p><p>We expect the job to shift from writing code to specifying, reviewing and verifying it. The engineers who do well will be the ones who can explain clearly what they want and notice quickly when the answer is wrong.</p></div>\n    </section>\n  </main>\n\n  <footer class=\"shell\"><span><strong>The Prompt Engineers Who Can't Center a Div</strong> · Built by the humans in the loop.</span><span>Made with care, CSS, and review comments.</span></footer>\n  <script>\n    const toggle = document.getElementById('themeToggle');\n    toggle.addEventListener('click', () => {\n      const isNight = document.body.classList.toggle('night');\n      toggle.setAttribute('aria-pressed', String(isNight));\n      toggle.textContent = isNight ? '☀ Day mode' : '☾ Night mode';\n      document.querySelector('meta[name=\"theme-color\"]').content = isNight ? '#171a19' : '#f5f1e8';\n    });\n  </script>\n</body>\n</html>",
+                "lineStart": 1,
+                "lineEnd": 206,
+                "totalLines": 206,
+                "truncated": false
+              }
+            },
+            "title": "Users\\krish\\Downloads\\lab1\\lab1\\task1_opencode\\site\\index.src.html",
+            "time": {
+              "start": 1793811385802,
+              "end": 1793811385812
+            }
+          },
+          "id": "prt_1a77d8dc6001gDXdGoru78QdY3",
+          "sessionID": "ses_e58828af4ffesd8tu40joGem3h",
+          "messageID": "msg_1a77d8533001xhfAtdmZksJQMm"
+        },
+        {
+          "type": "tool",
+          "tool": "grep",
+          "callID": "call_xAVGWyGxfgvWEI82JpPCYUE0",
+          "state": {
+            "status": "completed",
+            "input": {
+              "pattern": "Five computer scientists|member|hot.take|hot take|@media|prefers-reduced-motion",
+              "path": "C:\\Users\\krish\\Downloads\\lab1\\lab1\\task1_opencode\\site",
+              "include": "index.src.html"
+            },
+            "output": "Found 17 matches\nC:\\Users\\krish\\Downloads\\lab1\\lab1\\task1_opencode\\site\\index.src.html:\n  Line 75:     .member-number { display: inline-block; margin-bottom: 8px; color: var(--accent-dark); font: 800 .75rem/1 monospace; letter-spacing: .08em; }\n\n  Line 85:     .hot-take { margin: 18px 0 0; padding: 14px 16px; border-radius: 12px; background: var(--lime); font-size: .91rem; font-weight: 800; }\n\n  Line 86:     .hot-take span { display: block; margin-bottom: 4px; font-size: .66rem; letter-spacing: .13em; text-transform: uppercase; }\n\n  Line 95:     @media (max-width: 760px) {\n\n  Line 105:     @media (max-width: 390px) {\n\n  Line 126:       <p class=\"hero-copy\">Five computer scientists, a suspicious amount of chai, and a group project that is—in a refreshing change of pace—actually about the group.</p>\n\n  Line 137:     <section class=\"team-grid\" aria-label=\"Team members\">\n\n  Line 139:         <div class=\"card-top\"><img class=\"portrait\" src=\"{{image:nirav.jpg}}\" alt=\"Photo of Nirav\"><div><span class=\"member-number\">01 / THE SYSTEMS PERSON</span><h3>Nirav</h3><p class=\"study\">M.Sc. Computer Science, 1st semester at Paderborn University; B.Tech. in Computer Engineering.</p></div></div>\n\n  Line 144:           <blockquote class=\"hot-take\"><span>Hot take</span>An AI that writes 1,000 lines a minute just means 1,000 lines a minute someone has to review.</blockquote>\n\n  Line 149:         <div class=\"card-top\"><img class=\"portrait\" src=\"{{image:nevil.jpg}}\" alt=\"Photo of Nevil\"><div><span class=\"member-number\">02 / THE PIXEL PERFECTIONIST</span><h3>Nevil</h3><p class=\"study\">M.Sc. Computer Science, 1st semester at Paderborn University; B.E. in Computer Engineering.</p></div></div>\n\n  Line 154:           <blockquote class=\"hot-take\"><span>Hot take</span>AI can center a div on the first try, which already makes it better than half of us.</blockquote>\n\n  Line 159:         <div class=\"card-top\"><img class=\"portrait\" src=\"{{image:krish.jpg}}\" alt=\"Photo of Krish\"><div><span class=\"member-number\">03 / THE CHAI-POWERED BUILDER</span><h3>Krish</h3><p class=\"study\">M.Sc. Computer Science, 1st semester at Paderborn University.</p></div></div>\n\n  Line 164:           <blockquote class=\"hot-take\"><span>Hot take</span>The best prompt engineer on your team is just the person who writes the clearest tickets.</blockquote>\n\n  Line 169:         <div class=\"card-top\"><img class=\"portrait\" src=\"{{image:keval.jpg}}\" alt=\"Photo of Keval\"><div><span class=\"member-number\">04 / THE PIPELINE WHISPERER</span><h3>Keval</h3><p class=\"study\">M.Sc. Computer Science, 1st semester at Paderborn University; B.Tech. in Computer Science.</p></div></div>\n\n  Line 174:           <blockquote class=\"hot-take\"><span>Hot take</span>Giving an AI agent production access without a sandbox is just chaos engineering with extra steps.</blockquote>\n\n  Line 179:         <div class=\"card-top\"><img class=\"portrait\" src=\"{{image:harsh.jpg}}\" alt=\"Photo of Harsh\"><div><span class=\"member-number\">05 / THE ML SIDE-QUESTER</span><h3>Harsh</h3><p class=\"study\">M.Sc. Computer Science, 1st semester at Paderborn University; B.E. in Information Technology.</p></div></div>\n\n  Line 184:           <blockquote class=\"hot-take\"><span>Hot take</span>Most \"AI bugs\" are just human requirements that were never written down.</blockquote>\n",
+            "metadata": {
+              "matches": 17,
+              "truncated": false
+            },
+            "title": "Five computer scientists|member|hot.take|hot take|@media|prefers-reduced-motion",
+            "time": {
+              "start": 1793811385851,
+              "end": 1793811385910
+            }
+          },
+          "id": "prt_1a77d8dcc001iggVtY3W6IeUcT",
+          "sessionID": "ses_e58828af4ffesd8tu40joGem3h",
+          "messageID": "msg_1a77d8533001xhfAtdmZksJQMm"
+        },
+        {
+          "reason": "tool-calls",
+          "type": "step-finish",
+          "tokens": {
+            "total": 9039,
+            "input": 211,
+            "output": 157,
+            "reasoning": 0,
+            "cache": {
+              "write": 0,
+              "read": 8671
+            }
+          },
+          "cost": 0.00018631,
+          "id": "prt_1a77d8f89001SnU2J99zBgkVy4",
+          "sessionID": "ses_e58828af4ffesd8tu40joGem3h",
+          "messageID": "msg_1a77d8533001xhfAtdmZksJQMm"
+        }
+      ]
+    },
+    {
+      "info": {
+        "parentID": "msg_1a77d7520001pb7giBxMvuuoRr",
+        "role": "assistant",
+        "mode": "build",
+        "agent": "build",
+        "path": {
+          "cwd": "C:\\Users\\krish\\Downloads\\lab1\\lab1\\task1_opencode",
+          "root": "/"
+        },
+        "cost": 0.00112239,
+        "tokens": {
+          "total": 16507,
+          "input": 6951,
+          "output": 161,
+          "reasoning": 516,
+          "cache": {
+            "write": 0,
+            "read": 8879
+          }
+        },
+        "modelID": "openai.gpt-6-luna",
+        "providerID": "upb",
+        "time": {
+          "created": 1793811386257,
+          "completed": 1793811395465
+        },
+        "finish": "tool-calls",
+        "id": "msg_1a77d8f900019Zswk1XJRpxQUa",
+        "sessionID": "ses_e58828af4ffesd8tu40joGem3h"
+      },
+      "parts": [
+        {
+          "type": "step-start",
+          "id": "prt_1a77daa4e001pB2PGG19wWX2Ks",
+          "sessionID": "ses_e58828af4ffesd8tu40joGem3h",
+          "messageID": "msg_1a77d8f900019Zswk1XJRpxQUa"
+        },
+        {
+          "type": "text",
+          "text": "Three tagline options:\n\n1. “AI writes code. We debug the confidence.”\n2. “We teach machines to code; they teach us to review.”\n3. “AI ships the draft. Humans catch the plot holes.”\n\nI’m using option 1—it’s the punchiest and fits the team’s human-review theme.",
+          "time": {
+            "start": 1793811393105,
+            "end": 1793811395449
+          },
+          "id": "prt_1a77daa51001d3KRyKIIhN3pUu",
+          "sessionID": "ses_e58828af4ffesd8tu40joGem3h",
+          "messageID": "msg_1a77d8f900019Zswk1XJRpxQUa"
+        },
+        {
+          "type": "tool",
+          "tool": "todowrite",
+          "callID": "call_qFF1imX2J4dCficNcDzaiOHu",
+          "state": {
+            "status": "completed",
+            "input": {
+              "todos": [
+                {
+                  "content": "Inspect the team-site instructions and current source HTML",
+                  "status": "completed",
+                  "priority": "high"
+                },
+                {
+                  "content": "Choose and apply a shorter AI/software-engineering tagline and reduced-motion-aware hover effects",
+                  "status": "in_progress",
+                  "priority": "high"
+                },
+                {
+                  "content": "Embed images and run the required site check",
+                  "status": "pending",
+                  "priority": "high"
+                }
+              ]
+            },
+            "output": "[\n  {\n    \"content\": \"Inspect the team-site instructions and current source HTML\",\n    \"status\": \"completed\",\n    \"priority\": \"high\"\n  },\n  {\n    \"content\": \"Choose and apply a shorter AI/software-engineering tagline and reduced-motion-aware hover effects\",\n    \"status\": \"in_progress\",\n    \"priority\": \"high\"\n  },\n  {\n    \"content\": \"Embed images and run the required site check\",\n    \"status\": \"pending\",\n    \"priority\": \"high\"\n  }\n]",
+            "metadata": {
+              "todos": [
+                {
+                  "content": "Inspect the team-site instructions and current source HTML",
+                  "status": "completed",
+                  "priority": "high"
+                },
+                {
+                  "content": "Choose and apply a shorter AI/software-engineering tagline and reduced-motion-aware hover effects",
+                  "status": "in_progress",
+                  "priority": "high"
+                },
+                {
+                  "content": "Embed images and run the required site check",
+                  "status": "pending",
+                  "priority": "high"
+                }
+              ],
+              "truncated": false
+            },
+            "title": "2 todos",
+            "time": {
+              "start": 1793811394693,
+              "end": 1793811394696
+            }
+          },
+          "id": "prt_1a77dad000019SmlO7bcljg5qf",
+          "sessionID": "ses_e58828af4ffesd8tu40joGem3h",
+          "messageID": "msg_1a77d8f900019Zswk1XJRpxQUa"
+        },
+        {
+          "reason": "tool-calls",
+          "type": "step-finish",
+          "tokens": {
+            "total": 16507,
+            "input": 6951,
+            "output": 161,
+            "reasoning": 516,
+            "cache": {
+              "write": 0,
+              "read": 8879
+            }
+          },
+          "cost": 0.00112239,
+          "id": "prt_1a77db37e001PrrY1425BbSAB3",
+          "sessionID": "ses_e58828af4ffesd8tu40joGem3h",
+          "messageID": "msg_1a77d8f900019Zswk1XJRpxQUa"
+        }
+      ]
+    },
+    {
+      "info": {
+        "parentID": "msg_1a77d7520001pb7giBxMvuuoRr",
+        "role": "assistant",
+        "mode": "build",
+        "agent": "build",
+        "path": {
+          "cwd": "C:\\Users\\krish\\Downloads\\lab1\\lab1\\task1_opencode",
+          "root": "/"
+        },
+        "cost": 0.00120787,
+        "tokens": {
+          "total": 18095,
+          "input": 211,
+          "output": 1542,
+          "reasoning": 515,
+          "cache": {
+            "write": 0,
+            "read": 15827
+          }
+        },
+        "modelID": "openai.gpt-6-luna",
+        "providerID": "upb",
+        "time": {
+          "created": 1793811395472,
+          "completed": 1793811433216
+        },
+        "finish": "tool-calls",
+        "id": "msg_1a77db3900015aZODJbqLZlpqo",
+        "sessionID": "ses_e58828af4ffesd8tu40joGem3h"
+      },
+      "parts": [
+        {
+          "type": "step-start",
+          "id": "prt_1a77dcd5d001PJp8XEcS61kr7Q",
+          "sessionID": "ses_e58828af4ffesd8tu40joGem3h",
+          "messageID": "msg_1a77db3900015aZODJbqLZlpqo"
+        },
+        {
+          "type": "text",
+          "text": "Three tagline options:\n\n1. “AI writes the code. We argue with the requirements.” **(chosen)**\n2. “Teaching machines to code, while still googling CSS.”\n3. “More AI in the loop. More humans checking the loop.”\n\nI’ll use option 1 and add hover transitions that respect reduced-motion preferences.",
+          "time": {
+            "start": 1793811402078,
+            "end": 1793811412442
+          },
+          "id": "prt_1a77dcd5e001fxee6RMGkpuVGT",
+          "sessionID": "ses_e58828af4ffesd8tu40joGem3h",
+          "messageID": "msg_1a77db3900015aZODJbqLZlpqo"
+        },
+        {
+          "type": "tool",
+          "tool": "apply_patch",
+          "callID": "call_cVHRcACN5V5P5o42Q1rAJmLg",
+          "state": {
+            "status": "completed",
+            "input": {
+              "patchText": "*** Begin Patch\n*** Update File: site/index.src.html\n@@\n       --blue: #b9d9ec;\n       --lavender: #d9c9ee;\n       --shadow: 0 18px 48px rgba(54, 46, 30, .09);\n+      --hover-shadow: 0 20px 38px rgba(54, 46, 30, .15);\n@@\n       --lavender: #493d59;\n       --shadow: 0 18px 48px rgba(0, 0, 0, .24);\n+      --hover-shadow: 0 22px 42px rgba(0, 0, 0, .38);\n     }\n-    a { color: inherit; }\n+    a { color: inherit; text-decoration-thickness: .08em; text-underline-offset: .18em; transition: color .2s ease, text-decoration-color .2s ease, transform .2s ease; }\n+    a:hover { color: var(--accent-dark); }\n+    a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }\n@@\n-    .theme-toggle { border: 1px solid var(--line); border-radius: 999px; padding: 10px 15px; background: var(--paper); color: var(--ink); font: inherit; font-size: .84rem; font-weight: 800; cursor: pointer; }\n-    .theme-toggle:hover { border-color: var(--accent); }\n+    .theme-toggle { border: 1px solid var(--line); border-radius: 999px; padding: 10px 15px; background: var(--paper); color: var(--ink); font: inherit; font-size: .84rem; font-weight: 800; cursor: pointer; transition: transform .2s ease, border-color .2s ease, background .2s ease, box-shadow .2s ease; }\n@@\n-    .card { overflow: hidden; border: 1px solid var(--line); border-radius: 22px; background: var(--paper); box-shadow: 0 8px 25px rgba(54, 46, 30, .04); }\n+    .card { position: relative; overflow: hidden; border: 1px solid var(--line); border-radius: 22px; background: var(--paper); box-shadow: 0 8px 25px rgba(54, 46, 30, .04); transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease; }\n@@\n-    .portrait { width: 150px; aspect-ratio: 1; border-radius: 16px; object-fit: cover; background: var(--blue); }\n+    .portrait { width: 150px; aspect-ratio: 1; border-radius: 16px; object-fit: cover; background: var(--blue); transition: transform .35s cubic-bezier(.2, .75, .3, 1); }\n@@\n-    .hot-take { margin: 18px 0 0; padding: 14px 16px; border-radius: 12px; background: var(--lime); font-size: .91rem; font-weight: 800; }\n+    .hot-take { margin: 18px 0 0; padding: 14px 16px; border-radius: 12px; background: var(--lime); font-size: .91rem; font-weight: 800; transition: box-shadow .25s ease, background .25s ease; }\n     .hot-take span { display: block; margin-bottom: 4px; font-size: .66rem; letter-spacing: .13em; text-transform: uppercase; }\n+    @keyframes hot-take-wiggle {\n+      0%, 100% { transform: rotate(0); }\n+      25% { transform: rotate(-1deg); }\n+      75% { transform: rotate(1deg); }\n+    }\n+    @media (hover: hover) and (pointer: fine) {\n+      .theme-toggle:hover { transform: translateY(-2px); border-color: var(--accent); box-shadow: 0 7px 16px color-mix(in srgb, var(--accent) 18%, transparent); }\n+      .card:hover { z-index: 1; transform: translateY(-6px) rotate(-.35deg); border-color: color-mix(in srgb, var(--accent) 55%, var(--line)); box-shadow: var(--hover-shadow); }\n+      .card:nth-child(even):hover { transform: translateY(-6px) rotate(.35deg); }\n+      .card:hover .portrait { transform: scale(1.045) rotate(-1deg); }\n+      .hot-take:hover { box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 45%, transparent), 0 8px 22px color-mix(in srgb, var(--accent) 24%, transparent); animation: hot-take-wiggle .38s ease-in-out; }\n+      .pill { transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease; }\n+      .pill:hover { transform: translateY(-2px); border-color: var(--accent); box-shadow: 0 5px 12px color-mix(in srgb, var(--accent) 16%, transparent); }\n+    }\n+    @media (prefers-reduced-motion: reduce) {\n+      html { scroll-behavior: auto; }\n+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }\n+      .card:hover, .card:nth-child(even):hover, .theme-toggle:hover, .pill:hover, .card:hover .portrait { transform: none; }\n+    }\n@@\n-      <p class=\"hero-copy\">Five computer scientists, a suspicious amount of chai, and a group project that is—in a refreshing change of pace—actually about the group.</p>\n+      <p class=\"hero-copy\">AI writes the code. We argue with the requirements.</p>\n*** End Patch"
+            },
+            "output": "Success. Updated the following files:\nM Users/krish/Downloads/lab1/lab1/task1_opencode/site/index.src.html",
+            "metadata": {
+              "diff": "Index: C:\\Users\\krish\\Downloads\\lab1\\lab1\\task1_opencode\\site\\index.src.html\n===================================================================\n--- C:\\Users\\krish\\Downloads\\lab1\\lab1\\task1_opencode\\site\\index.src.html\n+++ C:\\Users\\krish\\Downloads\\lab1\\lab1\\task1_opencode\\site\\index.src.html\n@@ -18,8 +18,9 @@\n     --lime: #d7ef72;\n     --blue: #b9d9ec;\n     --lavender: #d9c9ee;\n     --shadow: 0 18px 48px rgba(54, 46, 30, .09);\n+    --hover-shadow: 0 20px 38px rgba(54, 46, 30, .15);\n   }\n   * { box-sizing: border-box; }\n   html { scroll-behavior: smooth; }\n   body {\n@@ -42,16 +43,18 @@\n     --lime: #506128;\n     --blue: #294554;\n     --lavender: #493d59;\n     --shadow: 0 18px 48px rgba(0, 0, 0, .24);\n+    --hover-shadow: 0 22px 42px rgba(0, 0, 0, .38);\n   }\n-  a { color: inherit; }\n+  a { color: inherit; text-decoration-thickness: .08em; text-underline-offset: .18em; transition: color .2s ease, text-decoration-color .2s ease, transform .2s ease; }\n+  a:hover { color: var(--accent-dark); }\n+  a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }\n   .shell { width: min(1120px, calc(100% - 48px)); margin-inline: auto; }\n   .topbar { display: flex; align-items: center; justify-content: space-between; padding: 22px 0; }\n   .wordmark { display: inline-flex; align-items: center; gap: 10px; font-size: .84rem; font-weight: 900; letter-spacing: .09em; text-transform: uppercase; }\n   .mark { display: grid; width: 34px; height: 34px; place-items: center; border-radius: 11px; background: var(--ink); color: var(--bg); font-size: 1.2rem; transform: rotate(-7deg); }\n-  .theme-toggle { border: 1px solid var(--line); border-radius: 999px; padding: 10px 15px; background: var(--paper); color: var(--ink); font: inherit; font-size: .84rem; font-weight: 800; cursor: pointer; }\n-  .theme-toggle:hover { border-color: var(--accent); }\n+  .theme-toggle { border: 1px solid var(--line); border-radius: 999px; padding: 10px 15px; background: var(--paper); color: var(--ink); font: inherit; font-size: .84rem; font-weight: 800; cursor: pointer; transition: transform .2s ease, border-color .2s ease, background .2s ease, box-shadow .2s ease; }\n   .hero { position: relative; overflow: hidden; padding: clamp(44px, 8vw, 104px) clamp(25px, 7vw, 86px); border: 1px solid var(--line); border-radius: 30px; background: var(--paper); box-shadow: var(--shadow); }\n   .hero::after { content: \"</>\"; position: absolute; right: 4%; bottom: -44px; color: color-mix(in srgb, var(--accent) 13%, transparent); font: 900 clamp(130px, 23vw, 270px)/1 monospace; transform: rotate(-12deg); pointer-events: none; }\n   .eyebrow { margin: 0 0 16px; color: var(--accent-dark); font-size: .75rem; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; }\n   h1, h2, h3, p { margin-top: 0; }\n@@ -64,11 +67,11 @@\n   .section-head { display: flex; align-items: end; justify-content: space-between; gap: 20px; margin: 94px 0 24px; }\n   .section-head h2 { margin: 0; font-size: clamp(2rem, 5vw, 3.4rem); letter-spacing: -.06em; line-height: 1; }\n   .section-head p { max-width: 320px; margin: 0; color: var(--muted); font-size: .92rem; }\n   .team-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }\n-  .card { overflow: hidden; border: 1px solid var(--line); border-radius: 22px; background: var(--paper); box-shadow: 0 8px 25px rgba(54, 46, 30, .04); }\n+  .card { position: relative; overflow: hidden; border: 1px solid var(--line); border-radius: 22px; background: var(--paper); box-shadow: 0 8px 25px rgba(54, 46, 30, .04); transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease; }\n   .card-top { display: grid; grid-template-columns: 150px 1fr; align-items: center; gap: 22px; padding: 22px; border-bottom: 1px solid var(--line); }\n-  .portrait { width: 150px; aspect-ratio: 1; border-radius: 16px; object-fit: cover; background: var(--blue); }\n+  .portrait { width: 150px; aspect-ratio: 1; border-radius: 16px; object-fit: cover; background: var(--blue); transition: transform .35s cubic-bezier(.2, .75, .3, 1); }\n   .card:nth-child(2) .portrait { background: var(--lavender); }\n   .card:nth-child(3) .portrait { background: var(--lime); }\n   .card:nth-child(4) .portrait { background: var(--blue); }\n   .card:nth-child(5) .portrait { background: var(--lavender); }\n@@ -81,10 +84,29 @@\n   .detail { padding-top: 14px; border-top: 1px dashed var(--line); }\n   .detail + .detail { margin-top: 14px; }\n   .detail-label { display: block; margin-bottom: 4px; color: var(--accent-dark); font-size: .68rem; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; }\n   .detail p { margin: 0; font-size: .89rem; }\n-  .hot-take { margin: 18px 0 0; padding: 14px 16px; border-radius: 12px; background: var(--lime); font-size: .91rem; font-weight: 800; }\n+  .hot-take { margin: 18px 0 0; padding: 14px 16px; border-radius: 12px; background: var(--lime); font-size: .91rem; font-weight: 800; transition: box-shadow .25s ease, background .25s ease; }\n   .hot-take span { display: block; margin-bottom: 4px; font-size: .66rem; letter-spacing: .13em; text-transform: uppercase; }\n+  @keyframes hot-take-wiggle {\n+    0%, 100% { transform: rotate(0); }\n+    25% { transform: rotate(-1deg); }\n+    75% { transform: rotate(1deg); }\n+  }\n+  @media (hover: hover) and (pointer: fine) {\n+    .theme-toggle:hover { transform: translateY(-2px); border-color: var(--accent); box-shadow: 0 7px 16px color-mix(in srgb, var(--accent) 18%, transparent); }\n+    .card:hover { z-index: 1; transform: translateY(-6px) rotate(-.35deg); border-color: color-mix(in srgb, var(--accent) 55%, var(--line)); box-shadow: var(--hover-shadow); }\n+    .card:nth-child(even):hover { transform: translateY(-6px) rotate(.35deg); }\n+    .card:hover .portrait { transform: scale(1.045) rotate(-1deg); }\n+    .hot-take:hover { box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 45%, transparent), 0 8px 22px color-mix(in srgb, var(--accent) 24%, transparent); animation: hot-take-wiggle .38s ease-in-out; }\n+    .pill { transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease; }\n+    .pill:hover { transform: translateY(-2px); border-color: var(--accent); box-shadow: 0 5px 12px color-mix(in srgb, var(--accent) 16%, transparent); }\n+  }\n+  @media (prefers-reduced-motion: reduce) {\n+    html { scroll-behavior: auto; }\n+    *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }\n+    .card:hover, .card:nth-child(even):hover, .theme-toggle:hover, .pill:hover, .card:hover .portrait { transform: none; }\n+  }\n   .manifesto { position: relative; display: grid; grid-template-columns: .8fr 1.2fr; gap: 40px; margin: 94px 0 54px; padding: clamp(28px, 6vw, 62px); border-radius: 28px; background: var(--ink); color: var(--bg); }\n   .manifesto .eyebrow { color: var(--accent); }\n   .manifesto h2 { max-width: 360px; margin: 0; font-size: clamp(2rem, 5vw, 3.9rem); letter-spacing: -.07em; line-height: .98; }\n   .manifesto-copy { align-self: center; }\n@@ -122,9 +144,9 @@\n <main id=\"top\" class=\"shell\">\n   <section class=\"hero\" aria-labelledby=\"team-title\">\n     <p class=\"eyebrow\">Paderborn University · M.Sc. Computer Science</p>\n     <h1 id=\"team-title\">The Prompt Engineers <span>Who Can't Center a Div</span></h1>\n-    <p class=\"hero-copy\">Five computer scientists, a suspicious amount of chai, and a group project that is—in a refreshing change of pace—actually about the group.</p>\n+    <p class=\"hero-copy\">AI writes the code. We argue with the requirements.</p>\n     <div class=\"hero-meta\" aria-label=\"Team facts\">\n       <span class=\"pill hot\">5 humans</span><span class=\"pill\">1 shared future</span><span class=\"pill\">0 divs centered (allegedly)</span>\n     </div>\n   </section>\n\n",
+              "files": [
+                {
+                  "filePath": "C:\\Users\\krish\\Downloads\\lab1\\lab1\\task1_opencode\\site\\index.src.html",
+                  "relativePath": "Users/krish/Downloads/lab1/lab1/task1_opencode/site/index.src.html",
+                  "type": "update",
+                  "patch": "Index: C:\\Users\\krish\\Downloads\\lab1\\lab1\\task1_opencode\\site\\index.src.html\n===================================================================\n--- C:\\Users\\krish\\Downloads\\lab1\\lab1\\task1_opencode\\site\\index.src.html\n+++ C:\\Users\\krish\\Downloads\\lab1\\lab1\\task1_opencode\\site\\index.src.html\n@@ -18,8 +18,9 @@\n     --lime: #d7ef72;\n     --blue: #b9d9ec;\n     --lavender: #d9c9ee;\n     --shadow: 0 18px 48px rgba(54, 46, 30, .09);\n+    --hover-shadow: 0 20px 38px rgba(54, 46, 30, .15);\n   }\n   * { box-sizing: border-box; }\n   html { scroll-behavior: smooth; }\n   body {\n@@ -42,16 +43,18 @@\n     --lime: #506128;\n     --blue: #294554;\n     --lavender: #493d59;\n     --shadow: 0 18px 48px rgba(0, 0, 0, .24);\n+    --hover-shadow: 0 22px 42px rgba(0, 0, 0, .38);\n   }\n-  a { color: inherit; }\n+  a { color: inherit; text-decoration-thickness: .08em; text-underline-offset: .18em; transition: color .2s ease, text-decoration-color .2s ease, transform .2s ease; }\n+  a:hover { color: var(--accent-dark); }\n+  a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }\n   .shell { width: min(1120px, calc(100% - 48px)); margin-inline: auto; }\n   .topbar { display: flex; align-items: center; justify-content: space-between; padding: 22px 0; }\n   .wordmark { display: inline-flex; align-items: center; gap: 10px; font-size: .84rem; font-weight: 900; letter-spacing: .09em; text-transform: uppercase; }\n   .mark { display: grid; width: 34px; height: 34px; place-items: center; border-radius: 11px; background: var(--ink); color: var(--bg); font-size: 1.2rem; transform: rotate(-7deg); }\n-  .theme-toggle { border: 1px solid var(--line); border-radius: 999px; padding: 10px 15px; background: var(--paper); color: var(--ink); font: inherit; font-size: .84rem; font-weight: 800; cursor: pointer; }\n-  .theme-toggle:hover { border-color: var(--accent); }\n+  .theme-toggle { border: 1px solid var(--line); border-radius: 999px; padding: 10px 15px; background: var(--paper); color: var(--ink); font: inherit; font-size: .84rem; font-weight: 800; cursor: pointer; transition: transform .2s ease, border-color .2s ease, background .2s ease, box-shadow .2s ease; }\n   .hero { position: relative; overflow: hidden; padding: clamp(44px, 8vw, 104px) clamp(25px, 7vw, 86px); border: 1px solid var(--line); border-radius: 30px; background: var(--paper); box-shadow: var(--shadow); }\n   .hero::after { content: \"</>\"; position: absolute; right: 4%; bottom: -44px; color: color-mix(in srgb, var(--accent) 13%, transparent); font: 900 clamp(130px, 23vw, 270px)/1 monospace; transform: rotate(-12deg); pointer-events: none; }\n   .eyebrow { margin: 0 0 16px; color: var(--accent-dark); font-size: .75rem; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; }\n   h1, h2, h3, p { margin-top: 0; }\n@@ -64,11 +67,11 @@\n   .section-head { display: flex; align-items: end; justify-content: space-between; gap: 20px; margin: 94px 0 24px; }\n   .section-head h2 { margin: 0; font-size: clamp(2rem, 5vw, 3.4rem); letter-spacing: -.06em; line-height: 1; }\n   .section-head p { max-width: 320px; margin: 0; color: var(--muted); font-size: .92rem; }\n   .team-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }\n-  .card { overflow: hidden; border: 1px solid var(--line); border-radius: 22px; background: var(--paper); box-shadow: 0 8px 25px rgba(54, 46, 30, .04); }\n+  .card { position: relative; overflow: hidden; border: 1px solid var(--line); border-radius: 22px; background: var(--paper); box-shadow: 0 8px 25px rgba(54, 46, 30, .04); transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease; }\n   .card-top { display: grid; grid-template-columns: 150px 1fr; align-items: center; gap: 22px; padding: 22px; border-bottom: 1px solid var(--line); }\n-  .portrait { width: 150px; aspect-ratio: 1; border-radius: 16px; object-fit: cover; background: var(--blue); }\n+  .portrait { width: 150px; aspect-ratio: 1; border-radius: 16px; object-fit: cover; background: var(--blue); transition: transform .35s cubic-bezier(.2, .75, .3, 1); }\n   .card:nth-child(2) .portrait { background: var(--lavender); }\n   .card:nth-child(3) .portrait { background: var(--lime); }\n   .card:nth-child(4) .portrait { background: var(--blue); }\n   .card:nth-child(5) .portrait { background: var(--lavender); }\n@@ -81,10 +84,29 @@\n   .detail { padding-top: 14px; border-top: 1px dashed var(--line); }\n   .detail + .detail { margin-top: 14px; }\n   .detail-label { display: block; margin-bottom: 4px; color: var(--accent-dark); font-size: .68rem; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; }\n   .detail p { margin: 0; font-size: .89rem; }\n-  .hot-take { margin: 18px 0 0; padding: 14px 16px; border-radius: 12px; background: var(--lime); font-size: .91rem; font-weight: 800; }\n+  .hot-take { margin: 18px 0 0; padding: 14px 16px; border-radius: 12px; background: var(--lime); font-size: .91rem; font-weight: 800; transition: box-shadow .25s ease, background .25s ease; }\n   .hot-take span { display: block; margin-bottom: 4px; font-size: .66rem; letter-spacing: .13em; text-transform: uppercase; }\n+  @keyframes hot-take-wiggle {\n+    0%, 100% { transform: rotate(0); }\n+    25% { transform: rotate(-1deg); }\n+    75% { transform: rotate(1deg); }\n+  }\n+  @media (hover: hover) and (pointer: fine) {\n+    .theme-toggle:hover { transform: translateY(-2px); border-color: var(--accent); box-shadow: 0 7px 16px color-mix(in srgb, var(--accent) 18%, transparent); }\n+    .card:hover { z-index: 1; transform: translateY(-6px) rotate(-.35deg); border-color: color-mix(in srgb, var(--accent) 55%, var(--line)); box-shadow: var(--hover-shadow); }\n+    .card:nth-child(even):hover { transform: translateY(-6px) rotate(.35deg); }\n+    .card:hover .portrait { transform: scale(1.045) rotate(-1deg); }\n+    .hot-take:hover { box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 45%, transparent), 0 8px 22px color-mix(in srgb, var(--accent) 24%, transparent); animation: hot-take-wiggle .38s ease-in-out; }\n+    .pill { transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease; }\n+    .pill:hover { transform: translateY(-2px); border-color: var(--accent); box-shadow: 0 5px 12px color-mix(in srgb, var(--accent) 16%, transparent); }\n+  }\n+  @media (prefers-reduced-motion: reduce) {\n+    html { scroll-behavior: auto; }\n+    *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }\n+    .card:hover, .card:nth-child(even):hover, .theme-toggle:hover, .pill:hover, .card:hover .portrait { transform: none; }\n+  }\n   .manifesto { position: relative; display: grid; grid-template-columns: .8fr 1.2fr; gap: 40px; margin: 94px 0 54px; padding: clamp(28px, 6vw, 62px); border-radius: 28px; background: var(--ink); color: var(--bg); }\n   .manifesto .eyebrow { color: var(--accent); }\n   .manifesto h2 { max-width: 360px; margin: 0; font-size: clamp(2rem, 5vw, 3.9rem); letter-spacing: -.07em; line-height: .98; }\n   .manifesto-copy { align-self: center; }\n@@ -122,9 +144,9 @@\n <main id=\"top\" class=\"shell\">\n   <section class=\"hero\" aria-labelledby=\"team-title\">\n     <p class=\"eyebrow\">Paderborn University · M.Sc. Computer Science</p>\n     <h1 id=\"team-title\">The Prompt Engineers <span>Who Can't Center a Div</span></h1>\n-    <p class=\"hero-copy\">Five computer scientists, a suspicious amount of chai, and a group project that is—in a refreshing change of pace—actually about the group.</p>\n+    <p class=\"hero-copy\">AI writes the code. We argue with the requirements.</p>\n     <div class=\"hero-meta\" aria-label=\"Team facts\">\n       <span class=\"pill hot\">5 humans</span><span class=\"pill\">1 shared future</span><span class=\"pill\">0 divs centered (allegedly)</span>\n     </div>\n   </section>\n",
+                  "additions": 29,
+                  "deletions": 7
+                }
+              ],
+              "diagnostics": {},
+              "truncated": false
+            },
+            "title": "Success. Updated the following files:\nM Users/krish/Downloads/lab1/lab1/task1_opencode/site/index.src.html",
+            "time": {
+              "start": 1793811411537,
+              "end": 1793811433202
+            }
+          },
+          "id": "prt_1a77dcfeb001OXxg6u92T6reFm",
+          "sessionID": "ses_e58828af4ffesd8tu40joGem3h",
+          "messageID": "msg_1a77db3900015aZODJbqLZlpqo"
+        },
+        {
+          "reason": "tool-calls",
+          "type": "step-finish",
+          "tokens": {
+            "total": 18095,
+            "input": 211,
+            "output": 1542,
+            "reasoning": 515,
+            "cache": {
+              "write": 0,
+              "read": 15827
+            }
+          },
+          "cost": 0.00120787,
+          "id": "prt_1a77e46f4001iR0CJgVheccIto",
+          "sessionID": "ses_e58828af4ffesd8tu40joGem3h",
+          "messageID": "msg_1a77db3900015aZODJbqLZlpqo"
+        }
+      ]
+    },
+    {
+      "info": {
+        "parentID": "msg_1a77d7520001pb7giBxMvuuoRr",
+        "role": "assistant",
+        "mode": "build",
+        "agent": "build",
+        "path": {
+          "cwd": "C:\\Users\\krish\\Downloads\\lab1\\lab1\\task1_opencode",
+          "root": "/"
+        },
+        "cost": 0.00045105,
+        "tokens": {
+          "total": 17822,
+          "input": 1507,
+          "output": 183,
+          "reasoning": 97,
+          "cache": {
+            "write": 0,
+            "read": 16035
+          }
+        },
+        "modelID": "openai.gpt-6-luna",
+        "providerID": "upb",
+        "time": {
+          "created": 1793811433220,
+          "completed": 1793811440541
+        },
+        "finish": "tool-calls",
+        "id": "msg_1a77e47040015KVOuyuSiHCJYB",
+        "sessionID": "ses_e58828af4ffesd8tu40joGem3h"
+      },
+      "parts": [
+        {
+          "type": "step-start",
+          "id": "prt_1a77e5b5e001VP9bR4bB9JCYk3",
+          "sessionID": "ses_e58828af4ffesd8tu40joGem3h",
+          "messageID": "msg_1a77e47040015KVOuyuSiHCJYB"
+        },
+        {
+          "type": "text",
+          "text": "Three tagline options:\n1. “AI writes the code. We argue with the requirements.” **(using this one)**\n2. “Teaching machines to code; teaching ourselves to review.”\n3. “More AI, fewer keystrokes, same bugs.”\n\nI’ve added theme-aware card/photo/button/link hover transitions, a hot-take wiggle/glow, and reduced-motion overrides. I’m embedding and checking the page now.",
+          "time": {
+            "start": 1793811438432,
+            "end": 1793811440532
+          },
+          "id": "prt_1a77e5b600015v40sEtgv40g0S",
+          "sessionID": "ses_e58828af4ffesd8tu40joGem3h",
+          "messageID": "msg_1a77e47040015KVOuyuSiHCJYB"
+        },
+        {
+          "type": "tool",
+          "tool": "todowrite",
+          "callID": "call_dXZY22vjiBRM5kH7B4q1LG4K",
+          "state": {
+            "status": "completed",
+            "input": {
+              "todos": [
+                {
+                  "content": "Inspect the team-site instructions and current source HTML",
+                  "status": "completed",
+                  "priority": "high"
+                },
+                {
+                  "content": "Choose and apply a shorter AI/software-engineering tagline and reduced-motion-aware hover effects",
+                  "status": "completed",
+                  "priority": "high"
+                },
+                {
+                  "content": "Embed images and run the required site check",
+                  "status": "in_progress",
+                  "priority": "high"
+                }
+              ]
+            },
+            "output": "[\n  {\n    \"content\": \"Inspect the team-site instructions and current source HTML\",\n    \"status\": \"completed\",\n    \"priority\": \"high\"\n  },\n  {\n    \"content\": \"Choose and apply a shorter AI/software-engineering tagline and reduced-motion-aware hover effects\",\n    \"status\": \"completed\",\n    \"priority\": \"high\"\n  },\n  {\n    \"content\": \"Embed images and run the required site check\",\n    \"status\": \"in_progress\",\n    \"priority\": \"high\"\n  }\n]",
+            "metadata": {
+              "todos": [
+                {
+                  "content": "Inspect the team-site instructions and current source HTML",
+                  "status": "completed",
+                  "priority": "high"
+                },
+                {
+                  "content": "Choose and apply a shorter AI/software-engineering tagline and reduced-motion-aware hover effects",
+                  "status": "completed",
+                  "priority": "high"
+                },
+                {
+                  "content": "Embed images and run the required site check",
+                  "status": "in_progress",
+                  "priority": "high"
+                }
+              ],
+              "truncated": false
+            },
+            "title": "1 todos",
+            "time": {
+              "start": 1793811440346,
+              "end": 1793811440347
+            }
+          },
+          "id": "prt_1a77e5f47001pqFKNN9WFL0V9N",
+          "sessionID": "ses_e58828af4ffesd8tu40joGem3h",
+          "messageID": "msg_1a77e47040015KVOuyuSiHCJYB"
+        },
+        {
+          "reason": "tool-calls",
+          "type": "step-finish",
+          "tokens": {
+            "total": 17822,
+            "input": 1507,
+            "output": 183,
+            "reasoning": 97,
+            "cache": {
+              "write": 0,
+              "read": 16035
+            }
+          },
+          "cost": 0.00045105,
+          "id": "prt_1a77e639a001NctRdILk77wJtP",
+          "sessionID": "ses_e58828af4ffesd8tu40joGem3h",
+          "messageID": "msg_1a77e47040015KVOuyuSiHCJYB"
+        }
+      ]
+    },
+    {
+      "info": {
+        "parentID": "msg_1a77d7520001pb7giBxMvuuoRr",
+        "role": "assistant",
+        "mode": "build",
+        "agent": "build",
+        "path": {
+          "cwd": "C:\\Users\\krish\\Downloads\\lab1\\lab1\\task1_opencode",
+          "root": "/"
+        },
+        "cost": 0.00027549,
+        "tokens": {
+          "total": 17908,
+          "input": 211,
+          "output": 158,
+          "reasoning": 0,
+          "cache": {
+            "write": 0,
+            "read": 17539
+          }
+        },
+        "modelID": "openai.gpt-6-luna",
+        "providerID": "upb",
+        "time": {
+          "created": 1793811440543,
+          "completed": 1793811448142
+        },
+        "finish": "tool-calls",
+        "id": "msg_1a77e639f001AKJNASYgc79wl6",
+        "sessionID": "ses_e58828af4ffesd8tu40joGem3h"
+      },
+      "parts": [
+        {
+          "type": "step-start",
+          "id": "prt_1a77e68a5001S7n3oYlSkONtdj",
+          "sessionID": "ses_e58828af4ffesd8tu40joGem3h",
+          "messageID": "msg_1a77e639f001AKJNASYgc79wl6"
+        },
+        {
+          "type": "text",
+          "text": "I chose **“AI writes the code. We argue with the requirements.”** for the page. The other two options are **“AI ships the code; we ship the judgment.”** and **“More autocomplete, same human-sized bugs.”** I’ve added hover transitions with theme-aware shadows and a reduced-motion override; I’m embedding and checking the result now.",
+          "time": {
+            "start": 1793811441832,
+            "end": 1793811443830
+          },
+          "id": "prt_1a77e68a8001S4i6F0D1jddjWP",
+          "sessionID": "ses_e58828af4ffesd8tu40joGem3h",
+          "messageID": "msg_1a77e639f001AKJNASYgc79wl6"
+        },
+        {
+          "type": "tool",
+          "tool": "bash",
+          "callID": "call_BPv3X3fFg0LmSvrhuhpFLET3",
+          "state": {
+            "status": "completed",
+            "input": {
+              "command": "uv run python embed_images.py site/index.src.html --images content/images --out site/index.html && uv run python check_site.py site/index.html --content content",
+              "timeout": 120000,
+              "workdir": "C:\\Users\\krish\\Downloads\\lab1\\lab1\\task1_opencode"
+            },
+            "output": "Traceback (most recent call last):\r\n  File \"C:\\Users\\krish\\Downloads\\lab1\\lab1\\task1_opencode\\embed_images.py\", line 14, in <module>\r\n    main()\r\n  File \"C:\\Users\\krish\\Downloads\\lab1\\lab1\\common\\embed_images.py\", line 76, in main\r\n    print(f\"Embedded {count} image placeholder(s) \\u2192 {out} ({out.stat().st_size / 1024:.0f} KB)\")\r\n  File \"C:\\Users\\krish\\AppData\\Roaming\\uv\\python\\cpython-3.12.11-windows-x86_64-none\\Lib\\encodings\\cp1252.py\", line 19, in encode\r\n    return codecs.charmap_encode(input,self.errors,encoding_table)[0]\r\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\nUnicodeEncodeError: 'charmap' codec can't encode character '\\u2192' in position 32: character maps to <undefined>\r\n",
+            "metadata": {
+              "output": "Traceback (most recent call last):\r\n  File \"C:\\Users\\krish\\Downloads\\lab1\\lab1\\task1_opencode\\embed_images.py\", line 14, in <module>\r\n    main()\r\n  File \"C:\\Users\\krish\\Downloads\\lab1\\lab1\\common\\embed_images.py\", line 76, in main\r\n    print(f\"Embedded {count} image placeholder(s) \\u2192 {out} ({out.stat().st_size / 1024:.0f} KB)\")\r\n  File \"C:\\Users\\krish\\AppData\\Roaming\\uv\\python\\cpython-3.12.11-windows-x86_64-none\\Lib\\encodings\\cp1252.py\", line 19, in encode\r\n    return codecs.charmap_encode(input,self.errors,encoding_table)[0]\r\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\r\nUnicodeEncodeError: 'charmap' codec can't encode character '\\u2192' in position 32: character maps to <undefined>\r\n",
+              "exit": 1,
+              "truncated": false
+            },
+            "title": "uv run python embed_images.py site/index.src.html --images content/images --out site/index.html && uv run python check_site.py site/index.html --content content",
+            "time": {
+              "start": 1793811443152,
+              "end": 1793811448138
+            }
+          },
+          "id": "prt_1a77e6b640019neE34Eg5dA1hZ",
+          "sessionID": "ses_e58828af4ffesd8tu40joGem3h",
+          "messageID": "msg_1a77e639f001AKJNASYgc79wl6"
+        },
+        {
+          "reason": "tool-calls",
+          "type": "step-finish",
+          "tokens": {
+            "total": 17908,
+            "input": 211,
+            "output": 158,
+            "reasoning": 0,
+            "cache": {
+              "write": 0,
+              "read": 17539
+            }
+          },
+          "cost": 0.00027549,
+          "id": "prt_1a77e814b001I7qOn46yi2Z4sM",
+          "sessionID": "ses_e58828af4ffesd8tu40joGem3h",
+          "messageID": "msg_1a77e639f001AKJNASYgc79wl6"
+        }
+      ]
+    },
+    {
+      "info": {
+        "parentID": "msg_1a77d7520001pb7giBxMvuuoRr",
+        "role": "assistant",
+        "mode": "build",
+        "agent": "build",
+        "path": {
+          "cwd": "C:\\Users\\krish\\Downloads\\lab1\\lab1\\task1_opencode",
+          "root": "/"
+        },
+        "cost": 0.00028767,
+        "tokens": {
+          "total": 18217,
+          "input": 312,
+          "output": 90,
+          "reasoning": 68,
+          "cache": {
+            "write": 0,
+            "read": 17747
+          }
+        },
+        "modelID": "openai.gpt-6-luna",
+        "providerID": "upb",
+        "time": {
+          "created": 1793811448145,
+          "completed": 1793811655888
+        },
+        "finish": "tool-calls",
+        "id": "msg_1a77e8151001AiBEQusaPL8pNS",
+        "sessionID": "ses_e58828af4ffesd8tu40joGem3h"
+      },
+      "parts": [
+        {
+          "type": "step-start",
+          "id": "prt_1a77e88cb001H1CJhOZp4H5tP0",
+          "sessionID": "ses_e58828af4ffesd8tu40joGem3h",
+          "messageID": "msg_1a77e8151001AiBEQusaPL8pNS"
+        },
+        {
+          "type": "tool",
+          "tool": "bash",
+          "callID": "call_vJIqqEsTl5SMbhhWNBsqZONM",
+          "state": {
+            "status": "completed",
+            "input": {
+              "command": "set PYTHONIOENCODING=utf-8&& uv run python embed_images.py site/index.src.html --images content/images --out site/index.html && uv run python check_site.py site/index.html --content content",
+              "timeout": 120000,
+              "workdir": "C:\\Users\\krish\\Downloads\\lab1\\lab1\\task1_opencode"
+            },
+            "output": "Embedded 5 image placeholder(s) → site\\index.html (138 KB)\r\n[PASS] file size: 138 KB\r\n[PASS] no external resources: everything is inside the file\r\n[PASS] viewport meta tag: present\r\n[PASS] responsive CSS: width-based media query found\r\n[PASS] day/night toggle: button + theme switching script found\r\n[PASS] embedded images: 5 images, all embedded as data URIs\r\n[PASS] all members present: all 5 members mentioned\r\n7/7 checks passed. All good!\r\n",
+            "metadata": {
+              "output": "Embedded 5 image placeholder(s) → site\\index.html (138 KB)\r\n[PASS] file size: 138 KB\r\n[PASS] no external resources: everything is inside the file\r\n[PASS] viewport meta tag: present\r\n[PASS] responsive CSS: width-based media query found\r\n[PASS] day/night toggle: button + theme switching script found\r\n[PASS] embedded images: 5 images, all embedded as data URIs\r\n[PASS] all members present: all 5 members mentioned\r\n7/7 checks passed. All good!\r\n",
+              "exit": 0,
+              "truncated": false
+            },
+            "title": "set PYTHONIOENCODING=utf-8&& uv run python embed_images.py site/index.src.html --images content/images --out site/index.html && uv run python check_site.py site/index.html --content content",
+            "time": {
+              "start": 1793811450555,
+              "end": 1793811655882
+            }
+          },
+          "id": "prt_1a77e88cd001HfNyzInSanyeuh",
+          "sessionID": "ses_e58828af4ffesd8tu40joGem3h",
+          "messageID": "msg_1a77e8151001AiBEQusaPL8pNS"
+        },
+        {
+          "reason": "tool-calls",
+          "type": "step-finish",
+          "tokens": {
+            "total": 18217,
+            "input": 312,
+            "output": 90,
+            "reasoning": 68,
+            "cache": {
+              "write": 0,
+              "read": 17747
+            }
+          },
+          "cost": 0.00028767,
+          "id": "prt_1a781accc001J9by8HDzfG0Vly",
+          "sessionID": "ses_e58828af4ffesd8tu40joGem3h",
+          "messageID": "msg_1a77e8151001AiBEQusaPL8pNS"
+        }
+      ]
+    },
+    {
+      "info": {
+        "parentID": "msg_1a77d7520001pb7giBxMvuuoRr",
+        "role": "assistant",
+        "mode": "build",
+        "agent": "build",
+        "path": {
+          "cwd": "C:\\Users\\krish\\Downloads\\lab1\\lab1\\task1_opencode",
+          "root": "/"
+        },
+        "cost": 0.00024506,
+        "tokens": {
+          "total": 18357,
+          "input": 215,
+          "output": 86,
+          "reasoning": 0,
+          "cache": {
+            "write": 0,
+            "read": 18056
+          }
+        },
+        "modelID": "openai.gpt-6-luna",
+        "providerID": "upb",
+        "time": {
+          "created": 1793811655890,
+          "completed": 1793811659919
+        },
+        "finish": "tool-calls",
+        "id": "msg_1a781acd2001MDKLgDvTZAKXRK",
+        "sessionID": "ses_e58828af4ffesd8tu40joGem3h"
+      },
+      "parts": [
+        {
+          "type": "step-start",
+          "id": "prt_1a781b803001mA7gwdCAEelRVZ",
+          "sessionID": "ses_e58828af4ffesd8tu40joGem3h",
+          "messageID": "msg_1a781acd2001MDKLgDvTZAKXRK"
+        },
+        {
+          "type": "tool",
+          "tool": "todowrite",
+          "callID": "call_suAmaBDbh08iuTSx7c6Y4tim",
+          "state": {
+            "status": "completed",
+            "input": {
+              "todos": [
+                {
+                  "content": "Inspect the team-site instructions and current source HTML",
+                  "status": "completed",
+                  "priority": "high"
+                },
+                {
+                  "content": "Choose and apply a shorter AI/software-engineering tagline and reduced-motion-aware hover effects",
+                  "status": "completed",
+                  "priority": "high"
+                },
+                {
+                  "content": "Embed images and run the required site check",
+                  "status": "completed",
+                  "priority": "high"
+                }
+              ]
+            },
+            "output": "[\n  {\n    \"content\": \"Inspect the team-site instructions and current source HTML\",\n    \"status\": \"completed\",\n    \"priority\": \"high\"\n  },\n  {\n    \"content\": \"Choose and apply a shorter AI/software-engineering tagline and reduced-motion-aware hover effects\",\n    \"status\": \"completed\",\n    \"priority\": \"high\"\n  },\n  {\n    \"content\": \"Embed images and run the required site check\",\n    \"status\": \"completed\",\n    \"priority\": \"high\"\n  }\n]",
+            "metadata": {
+              "todos": [
+                {
+                  "content": "Inspect the team-site instructions and current source HTML",
+                  "status": "completed",
+                  "priority": "high"
+                },
+                {
+                  "content": "Choose and apply a shorter AI/software-engineering tagline and reduced-motion-aware hover effects",
+                  "status": "completed",
+                  "priority": "high"
+                },
+                {
+                  "content": "Embed images and run the required site check",
+                  "status": "completed",
+                  "priority": "high"
+                }
+              ],
+              "truncated": false
+            },
+            "title": "0 todos",
+            "time": {
+              "start": 1793811659218,
+              "end": 1793811659219
+            }
+          },
+          "id": "prt_1a781b805001fR6Lav1yKWjOxz",
+          "sessionID": "ses_e58828af4ffesd8tu40joGem3h",
+          "messageID": "msg_1a781acd2001MDKLgDvTZAKXRK"
+        },
+        {
+          "reason": "tool-calls",
+          "type": "step-finish",
+          "tokens": {
+            "total": 18357,
+            "input": 215,
+            "output": 86,
+            "reasoning": 0,
+            "cache": {
+              "write": 0,
+              "read": 18056
+            }
+          },
+          "cost": 0.00024506,
+          "id": "prt_1a781bc8b001CXgrFOg7tqCLvY",
+          "sessionID": "ses_e58828af4ffesd8tu40joGem3h",
+          "messageID": "msg_1a781acd2001MDKLgDvTZAKXRK"
+        }
+      ]
+    },
+    {
+      "info": {
+        "parentID": "msg_1a77d7520001pb7giBxMvuuoRr",
+        "role": "assistant",
+        "mode": "build",
+        "agent": "build",
+        "path": {
+          "cwd": "C:\\Users\\krish\\Downloads\\lab1\\lab1\\task1_opencode",
+          "root": "/"
+        },
+        "cost": 0.00026958,
+        "tokens": {
+          "total": 18609,
+          "input": 209,
+          "output": 132,
+          "reasoning": 0,
+          "cache": {
+            "write": 0,
+            "read": 18268
+          }
+        },
+        "modelID": "openai.gpt-6-luna",
+        "providerID": "upb",
+        "time": {
+          "created": 1793811659921,
+          "completed": 1793811668048
+        },
+        "finish": "stop",
+        "id": "msg_1a781bc910010DILTslK4bexDG",
+        "sessionID": "ses_e58828af4ffesd8tu40joGem3h"
+      },
+      "parts": [
+        {
+          "type": "step-start",
+          "id": "prt_1a781d47d001HXgQTjcIKfqOQO",
+          "sessionID": "ses_e58828af4ffesd8tu40joGem3h",
+          "messageID": "msg_1a781bc910010DILTslK4bexDG"
+        },
+        {
+          "type": "text",
+          "text": "Three tagline options:\n\n1. **AI writes the code. We argue with the requirements.** *(used)*\n2. AI ships the draft; humans ship the judgment.\n3. Less typing, more telling the AI what it got wrong.\n\nAdded smooth card lift and tilt, photo zoom, hot-take wiggle/glow, and button, pill, and link transitions. Effects use the theme colors in both modes and are disabled for reduced-motion preferences.\n\nEmbedded the images and ran the site check: **7/7 passed**. The embed command first hit a Windows console encoding issue; rerunning with UTF-8 output succeeded.",
+          "time": {
+            "start": 1793811666047,
+            "end": 1793811668040
+          },
+          "id": "prt_1a781d47f001hSfC2U9NCR0ml8",
+          "sessionID": "ses_e58828af4ffesd8tu40joGem3h",
+          "messageID": "msg_1a781bc910010DILTslK4bexDG"
+        },
+        {
+          "reason": "stop",
+          "type": "step-finish",
+          "tokens": {
+            "total": 18609,
+            "input": 209,
+            "output": 132,
+            "reasoning": 0,
+            "cache": {
+              "write": 0,
+              "read": 18268
+            }
+          },
+          "cost": 0.00026958,
+          "id": "prt_1a781dc4c001wwaxckyRHRru8I",
+          "sessionID": "ses_e58828af4ffesd8tu40joGem3h",
+          "messageID": "msg_1a781bc910010DILTslK4bexDG"
+        }
+      ]
+    }
+  ]
+}
