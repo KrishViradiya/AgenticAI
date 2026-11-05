@@ -6,3 +6,6 @@ __pycache__/
 .pytest_cache/
 .cache/
 logs/*.jsonl.tmp
+
+# Personal video scripts and notes (not part of the submission)
+video/
