@@ -1,6 +1,46 @@
 # Lab 1 – Agentic Software Engineering (WS 2026/27)
 
-Starter material for Lab 1. The tasks, deadlines and grading are described on the lab sheet.
+## Group
+
+**Group XX – "The Prompt Engineers Who Can't Center a Div"**
+
+| Name | Matriculation number |
+|---|---|
+| Krish Viradiya | TODO |
+| Nirav | TODO |
+| Harsh | TODO |
+| Keval | TODO |
+| Nevil | TODO |
+
+Who did what: [CONTRIBUTIONS.md](CONTRIBUTIONS.md).
+
+## How to run everything
+
+Do the setup below first (gateway key in `.env`, `uv sync`, university network or VPN). All commands run from this folder.
+
+**Task 1 – team website with OpenCode** ([task1_opencode/](task1_opencode/))
+The site was built by OpenCode, not by us: prompts and session statistics in
+[task1_opencode/PROMPTS.md](task1_opencode/PROMPTS.md), exported sessions in `task1_opencode/conversation/`.
+```bash
+uv run python task1_opencode/check_site.py task1_opencode/site/index.html --content task1_opencode/content
+```
+
+**Task 2 – our own coding agent** ([task2_own_agent/README.md](task2_own_agent/README.md))
+```bash
+uv run python task2_own_agent/agent.py --content task1_opencode/content --out task2_own_agent/site/index.html
+uv run python task2_own_agent/test_rag.py
+uv run pytest task2_own_agent/test_agent.py -q
+uv run python task2_own_agent/check_site.py task2_own_agent/site/index.html --content task1_opencode/content
+```
+On Windows, set `PYTHONIOENCODING=utf-8` first if the console shows encoding errors.
+
+**Task 3 – RAG under the microscope:** TODO
+
+**Task 4 – tools for agents:** TODO
+
+---
+
+The rest of this file is the starter material's setup guide. The tasks, deadlines and grading are described on the lab sheet.
 
 ## Access to the UPB AI Gateway (do this first)
 

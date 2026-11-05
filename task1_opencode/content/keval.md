@@ -1,9 +1,7 @@
 # Keval
 
-<!-- DRAFT – Keval: check and adjust before submission. -->
-
 ## Study background
-M.Sc. Computer Science, 1st semester at Paderborn University; B.Tech. in Computer Science.
+M.Sc. Computer Science at Paderborn University; B.E. in Computer Engineering.
 
 ## Interests
 Cloud and DevOps, cricket, and long bike rides along the Lippe.

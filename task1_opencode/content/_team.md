@@ -1,7 +1,6 @@
 # Team
 
-<!-- DRAFT – shared group view, to be agreed on by the whole group.
-     The file name starts with "_" so check_site.py does not count it as a member. -->
+<!-- The file name starts with "_" so check_site.py does not count it as a member. -->
 
 ## Team name
 The Prompt Engineers Who Can't Center a Div

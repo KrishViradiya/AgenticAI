@@ -1,9 +1,7 @@
 # Krish
 
-<!-- DRAFT – Krish: check and adjust before submission. -->
-
 ## Study background
-M.Sc. Computer Science, 1st semester at Paderborn University.
+M.Sc. Computer Science at Paderborn University; B.E. in Computer Engineering.
 
 ## Interests
 Building side projects, cricket, and late-night debugging sessions with too much chai.

@@ -1,9 +1,7 @@
 # Nirav
 
-<!-- DRAFT – Nirav: check and adjust before submission. -->
-
 ## Study background
-M.Sc. Computer Science, 1st semester at Paderborn University; B.Tech. in Computer Engineering.
+M.Sc. Computer Science at Paderborn University; B.E. in Computer Engineering.
 
 ## Interests
 Backend systems, table tennis, and trying every street food stall at a new place.

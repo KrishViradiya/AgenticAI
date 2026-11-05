@@ -50,7 +50,7 @@ def steps(llm):
     return [e for e in llm.events if e.get("event") == "step"]
 
 
-PAGE = '{"thought": "write", "action": "write_site", "args": {}}\n```html\n<html><body><img src="{{image:krish.jpg}}" alt="Krish"></body></html>\n```'
+PAGE = '{"thought": "write", "action": "write_site", "args": {}}\n```html\n<html><body><img src="{{image:Krish.png}}" alt="Krish"></body></html>\n```'
 
 
 # ------------------------------------------------------------------ parser
@@ -97,7 +97,7 @@ def test_read_profiles_lists_profiles_and_images(tmp_path):
     a, llm = make_agent(['{"action": "read_profiles", "args": {}}'], tmp_path, max_steps=1)
     a.run()
     obs = steps(llm)[0]["observation"]
-    assert "krish.md" in obs and "_team.md" in obs and "krish.jpg" in obs and "_template.md" not in obs
+    assert "krish.md" in obs and "_team.md" in obs and "Krish.png" in obs and "_template.md" not in obs
 
 
 def test_finish_rejected_before_passing_checks(tmp_path):
@@ -107,12 +107,12 @@ def test_finish_rejected_before_passing_checks(tmp_path):
     obs = [x["observation"] for x in steps(llm)]
     assert obs[0].startswith("finish REJECTED") and "Checker report" in obs[1] and obs[2].startswith("finish REJECTED")
     assert (tmp_path / "index.html").exists()
-    assert "data:image/jpeg;base64," in (tmp_path / "index.html").read_text(encoding="utf-8")
+    assert "data:image/png;base64," in (tmp_path / "index.html").read_text(encoding="utf-8")
 
 
 def test_unknown_image_and_base64_are_rejected(tmp_path):
-    bad_image = PAGE.replace("krish.jpg", "nobody.jpg")
-    base64 = PAGE.replace("{{image:krish.jpg}}", "data:image/png;base64,AAAA")
+    bad_image = PAGE.replace("Krish.png", "nobody.jpg")
+    base64 = PAGE.replace("{{image:Krish.png}}", "data:image/png;base64,AAAA")
     a, llm = make_agent([bad_image, base64], tmp_path, max_steps=2)
     a.run()
     obs = [x["observation"] for x in steps(llm)]

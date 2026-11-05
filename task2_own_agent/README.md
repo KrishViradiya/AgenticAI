@@ -48,9 +48,10 @@ uv run python task2_own_agent/check_site.py task2_own_agent/site/index.html --co
 | `agent.py` | prompts, protocol parser, actions, loop, human feedback, context compaction, CLI |
 | `test_rag.py` | 18 retrieval questions with the expected style guide document |
 | `test_agent.py` | 19 offline tests of the loop (fake model, no gateway needed) |
-| `logs/run_02.jsonl` | **the submitted run** that produced `site/index.html` (incl. human feedback) |
+| `logs/run_03.jsonl` | **the submitted run** that produced `site/index.html` (final photos and profiles, incl. human feedback) |
+| `logs/run_02.jsonl` | earlier run with the placeholder photos: one invalid answer, one failed check fixed by a new search, human feedback |
 | `logs/run_01.jsonl` | first complete run (no feedback given) |
-| `site/index.html` | the website from run_02, 25/25 checks |
+| `site/index.html` | the website from run_03, 25/25 checks |
 
 ## Design decisions
 
@@ -129,14 +130,21 @@ observation, ok/protocol_error), `checker` (full report), `human_feedback`, `ste
 
 ## Results
 
-| | run_01 | run_02 (submitted) |
-|---|---|---|
-| steps | 19 | 24 (20 + 4 after feedback) |
-| style guide searches | 16 | 17 |
-| invalid answers | 0 | 1 |
-| first `write_site` | 25/25 | 24/25 (theme mechanism) → searched SG-20 → 25/25 |
-| human feedback | none | "random hot take button + funny nicknames" → 25/25 |
-| cost | $0.0115 | $0.0153 |
+| | run_01 | run_02 | run_03 (submitted) |
+|---|---|---|---|
+| photos and profiles | placeholder | placeholder | final |
+| steps | 19 | 24 (20 + 4 after feedback) | 22 (17 + 5 after feedback) |
+| style guide searches | 16 | 17 | 17 (14 + 3) |
+| invalid answers | 0 | 1 | 0 |
+| first `write_site` | 25/25 | 24/25 (theme mechanism) → searched SG-20 → 25/25 | 25/25 |
+| human feedback | none | "random hot take button + funny nicknames" → 25/25 | "bigger hero name with a wave animation + circular photos with a magenta ring on hover" → 25/25 |
+| prompt tokens (first → last step) | 479 → 13,036 | 479 → 14,735 | 479 → 13,783 |
+| cost | $0.0115 | $0.0153 | $0.0132 |
+
+In run_03, after the feedback the agent first searched whether the request is allowed – motion rules (SG-55) and,
+twice, the typography scale (SG-52: can the `h1` be bigger?) – before rewriting the page.
+Deprecated documents came back in 4 searches (SG-10, SG-19, SG-39, SG-49); each time the active replacement
+ranked above it in the same result, and the page followed the active rule.
 
 ## Known limitations
 

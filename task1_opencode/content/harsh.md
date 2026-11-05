@@ -1,9 +1,7 @@
 # Harsh
 
-<!-- DRAFT – Harsh: check and adjust before submission. -->
-
 ## Study background
-M.Sc. Computer Science, 1st semester at Paderborn University; B.E. in Information Technology.
+M.Sc. Computer Science at Paderborn University; B.E. in Computer Engineering.
 
 ## Interests
 Machine learning, football, and cooking dishes my mother would not approve of.
