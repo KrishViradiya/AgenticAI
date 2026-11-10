@@ -34,7 +34,14 @@ uv run python task2_own_agent/check_site.py task2_own_agent/site/index.html --co
 ```
 On Windows, set `PYTHONIOENCODING=utf-8` first if the console shows encoding errors.
 
-**Task 3 – RAG under the microscope:** TODO
+**Task 3 – RAG under the microscope** ([task3_rag/RESULTS.md](task3_rag/RESULTS.md))
+R5 needs the local cross-encoder: `uv sync --extra local` (large download).
+```bash
+uv run python task3_rag/run_retrieval.py
+uv run python task3_rag/generate.py --system R5 --two-hop --split dev --sample 50
+uv run python task3_rag/judge.py task3_rag/results/answers_R5_2hop.jsonl --sample 50 --out task3_rag/results/judge_R5_2hop.jsonl
+uv run python task3_rag/generate.py --system R5 --two-hop --split test
+```
 
 **Task 4 – tools for agents:** TODO
 

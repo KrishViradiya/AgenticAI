@@ -1,0 +1,12 @@
+{
+  "retrieval_s": 2.902477662999845,
+  "generation_s": 2.6760763890000088,
+  "prompt_tokens": 1499.67,
+  "completion_tokens": 60.22,
+  "context_tokens": 1222.32,
+  "system": "R5_2hop",
+  "split": "test",
+  "n": 100,
+  "usage": "128 calls, 149967 prompt + 6022 completion tokens, $0.02141",
+  "cost_usd": 0.021411324999999995
+}

@@ -193,9 +193,14 @@ class LLMClient:
         vectors: list[list[float]] = []
         cost = 0.0
         start = time.time()
+        # The gateway cache works per text: if a batch mixes texts it has seen before with new ones, the
+        # vectors come back in the wrong order (and with wrong `index` fields). Found in Task 3, where the
+        # chunkings share many identical chunks. Bypassing the cache for embeddings keeps the order correct.
+        no_cache = {"extra_body": {"cache": {"no-cache": True}}} if not self._is_fake() else {}
         for i in range(0, len(texts), batch_size):
             batch = texts[i : i + batch_size]
-            response, meta = self._with_retries(lambda: self._create(self._client.embeddings, model=model, input=batch))
+            response, meta = self._with_retries(
+                lambda: self._create(self._client.embeddings, model=model, input=batch, **no_cache))
             vectors.extend(item.embedding for item in response.data)
             self._count(meta)
             cost += meta["cost_usd"] or 0.0
@@ -218,6 +223,10 @@ class LLMClient:
         )
 
     # --------------------------------------------------------------- helpers
+
+    def _is_fake(self) -> bool:
+        """True for an injected test client without the OpenAI SDK's raw-response API."""
+        return getattr(getattr(self._client, "embeddings", None), "with_raw_response", None) is None
 
     @staticmethod
     def _create(endpoint, **params):

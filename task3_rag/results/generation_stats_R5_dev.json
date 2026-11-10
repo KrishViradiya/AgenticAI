@@ -1,0 +1,12 @@
+{
+  "retrieval_s": 0.5680593419999422,
+  "generation_s": 2.2343039779999163,
+  "prompt_tokens": 1153.06,
+  "completion_tokens": 35.52,
+  "context_tokens": 893.46,
+  "system": "R5",
+  "split": "dev",
+  "n": 50,
+  "usage": "50 calls, 57653 prompt + 1776 completion tokens, $0.00787",
+  "cost_usd": 0.0078681
+}

@@ -1,0 +1,6 @@
+{
+  "chunking": "rec128",
+  "hybrid_weight": 0.3,
+  "rerank_pool": 30,
+  "rerank_alpha": 0.5
+}

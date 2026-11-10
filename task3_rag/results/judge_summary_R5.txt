@@ -1,0 +1,9 @@
+[50/50] dev147 faith=1.0 rel=0.70 correct=1.0
+category         n  abstained  faithful  relevance  correct
+paraphrase      10      0.000     1.000      0.711    1.000
+identifier      10      0.000     1.000      0.668    1.000
+version         10      0.000     1.000      0.795    1.000
+unanswerable    10      1.000       -        0.395    1.000
+multi-hop       10      1.000       -        0.343    0.000
+OVERALL         50      0.400     1.000      0.582    0.800
+faithful: mean over answers with claims (abstentions are not scored)

@@ -1,0 +1,12 @@
+{
+ "seen": {
+  "questions": 10,
+  "both_docs_in_context_R5": 0,
+  "both_docs_in_context_R5_2hop": 4
+ },
+ "unseen": {
+  "questions": 20,
+  "both_docs_in_context_R5": 0,
+  "both_docs_in_context_R5_2hop": 7
+ }
+}
