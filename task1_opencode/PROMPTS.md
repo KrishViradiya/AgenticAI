@@ -41,3 +41,15 @@ Note these moments down – the video needs one example of the agent going wrong
 | 01 | Krish | 1 (12 model calls) | 18,970 / 6,339 / 689 / 150,718 | 0.0069 | Built the site. Agent hit a Windows encoding error in embed_images.py and fixed it itself (PYTHONIOENCODING=utf-8). 7/7 checks. |
 | 02 | Krish | 1 (9 model calls) | 18,501 / 2,598 / 1,305 / 121,022 | 0.0050 | New tagline (3 options, picked 1) + hover effects + reduced motion. Same encoding error again: the agent has no memory between sessions. 7/7 checks. |
 | 03 | Krish | 1 (10 model calls) | 19,187 / 1,877 / 422 / 141,404 | 0.0045 | New avatars (PNG, new file names) + new study background. Agent updated only the 5 placeholders and study lines. `ls` failed (Windows cmd), it used its glob tool instead; the encoding error came a third time and it fixed it again. 7/7 checks. |
+
+## Screenshots of the site (for the video)
+
+Taken automatically with headless Edge from `site/index.html` (no site code was changed; night mode by clicking the toggle):
+
+| | day | night |
+|---|---|---|
+| desktop (1366 px) | `screenshots/site_desktop_day.png` | `screenshots/site_desktop_night.png` |
+| mobile (390 px) | `screenshots/site_mobile_day.png` | `screenshots/site_mobile_night.png` |
+
+The agent going wrong: `screenshots/image.png` shows the UnicodeEncodeError of the embed command in session 01; the
+agent fixed it itself with `PYTHONIOENCODING=utf-8`, and made the same mistake again in sessions 02 and 03.

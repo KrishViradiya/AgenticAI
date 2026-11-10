@@ -12,7 +12,21 @@
 | Keval | TODO |
 | Nevil | TODO |
 
-Who did what: [CONTRIBUTIONS.md](CONTRIBUTIONS.md).
+Who did what and the AI usage statement: [CONTRIBUTIONS.md](CONTRIBUTIONS.md). Lessons learned: [LESSONS_LEARNED.md](LESSONS_LEARNED.md).
+
+## Where to find what the video needs (lab sheet, "Required content")
+
+| Part | Required | Where |
+|---|---|---|
+| Intro | group name, members, screenshot of the Task 1 site | this file; `task1_opencode/screenshots/site_desktop_day.png` |
+| Task 1 | screenshots desktop + mobile, day + night | `task1_opencode/screenshots/site_{desktop,mobile}_{day,night}.png` |
+|  | session statistics (prompts, tokens, cost) | `task1_opencode/PROMPTS.md` (session log), `task1_opencode/conversation/` |
+|  | one moment the agent went wrong and how it was steered back | `task1_opencode/screenshots/image.png` (UnicodeEncodeError), session 01–03 exports |
+| Task 2 | one diagram: loop, actions, RAG, checker, human feedback | `task2_own_agent/docs/diagram.png` |
+|  | one annotated step | `task2_own_agent/docs/annotated_step.md` |
+| Task 3 | table configurations × metrics by category; failure analysis; recommendation | `task3_rag/RESULTS.md` §1, §6, §7 |
+| Task 4 | tools with read-only vs write; threat → control → where; condensed trace; untrusted content | `task4_tools/RESULTS.md` §1, §2, §4 |
+| Wrap-up | lessons learned, AI usage statement, who did what | `LESSONS_LEARNED.md`, `CONTRIBUTIONS.md` |
 
 ## How to run everything
 
@@ -43,7 +57,15 @@ uv run python task3_rag/judge.py task3_rag/results/answers_R5_2hop.jsonl --sampl
 uv run python task3_rag/generate.py --system R5 --two-hop --split test
 ```
 
-**Task 4 – tools for agents:** TODO
+**Task 4 – tools for agents** ([task4_tools/RESULTS.md](task4_tools/RESULTS.md))
+```bash
+uv run pytest task4_tools/tests -v
+uv run python task4_tools/reset_workspace.py      # on Windows delete task4_tools/workspace first if it exists
+uv run python task4_tools/agent.py --mock
+uv run python task4_tools/reset_workspace.py
+uv run python task4_tools/agent.py
+git -C task4_tools/workspace diff > task4_tools/final.diff
+```
 
 ---
 

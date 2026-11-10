@@ -52,6 +52,9 @@ uv run python task2_own_agent/check_site.py task2_own_agent/site/index.html --co
 | `logs/run_02.jsonl` | earlier run with the placeholder photos: one invalid answer, one failed check fixed by a new search, human feedback |
 | `logs/run_01.jsonl` | first complete run (no feedback given) |
 | `site/index.html` | the website from run_03, 25/25 checks |
+| `docs/diagram.png` (`.svg`) | **the diagram**: loop, actions, RAG, checker, human feedback |
+| `docs/annotated_step.md` | **one annotated step** (run_02, step 18): what was sent, what came back, what our code did |
+| `docs/site_*.png` | screenshots of the site: desktop/mobile × day/night |
 
 ## Design decisions
 

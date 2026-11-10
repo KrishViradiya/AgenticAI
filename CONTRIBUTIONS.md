@@ -35,3 +35,11 @@ Short list per person. Everyone checks their own entry before submission.
   prompt drafts and first drafts of the profile texts; no site code.
 - Task 2: Claude Code helped write `rag.py`, `agent.py`, the tests and the README. The agent itself uses
   `openai.gpt-6-luna` and `kiconnect.qwen3-embedding-8b` through the UPB AI Gateway.
+- Task 3: Claude Code helped write the chunking, the five retrievers, the experiment and generation scripts and
+  `RESULTS.md`, and found and fixed the gateway embedding-order bug in `common/llm_client.py`. Answers and judging use
+  `openai.gpt-6-luna`; re-ranking uses the local `cross-encoder/ms-marco-MiniLM-L-6-v2`.
+- Task 4: Claude Code helped write `tools.py`, `sandbox_runner.py`, `agent.py`, our attack tests and `RESULTS.md`.
+  The debugging agent itself is `openai.gpt-6-luna` with native function calling.
+- Documentation and video preparation: Claude Code drafted explanations and video scripts; screenshots of the
+  websites were taken automatically with headless Edge (no site code was changed for that).
+- Everything was reviewed by us; every member must be able to explain every part.
