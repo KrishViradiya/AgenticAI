@@ -2,15 +2,15 @@
 
 ## Group
 
-**Group XX – "The Prompt Engineers Who Can't Center a Div"**
+**Group 07 – "The Prompt Engineers Who Can't Center a Div"**
 
 | Name | Matriculation number |
 |---|---|
-| Krish Viradiya | TODO |
-| Nirav | TODO |
-| Harsh | TODO |
-| Keval | TODO |
-| Nevil | TODO |
+| Krish Viradiya | 4109611 |
+| Nirav | 4090427 |
+| Harsh | 4108643 |
+| Keval | 4108929 |
+| Nevil | 4110898 |
 
 Who did what and the AI usage statement: [CONTRIBUTIONS.md](CONTRIBUTIONS.md). Lessons learned: [LESSONS_LEARNED.md](LESSONS_LEARNED.md).
 

@@ -1,34 +1,41 @@
-# Contributions
+# Contributions – Group 07
 
-Short list per person. Everyone checks their own entry before submission.
+Short list per person. Everyone has checked their own entry and can explain every part of the submission.
 
-## Krish Viradiya
+## Krish Viradiya (4109611)
 - Setup: Python environment, gateway key, OpenCode configuration (`task1_opencode/opencode.json`, `AGENTS.md`)
-- Hello world with OpenCode (`task1_opencode/screenshots/hello_krish.png`)
-- Task 1: ran all three OpenCode sessions (build, tagline + hover effects, new photos + study background),
-  exported them and kept the session log in `task1_opencode/PROMPTS.md`
-- Task 2: ran the agent (run_01–run_03) and gave the human feedback; README and results
-- TODO: video part
+- Task 1: hello world (`screenshots/hello_krish.png`); profile and picture; ran all three OpenCode sessions
+  (build, tagline + hover effects, new photos + study background), exported them, kept the session log in `PROMPTS.md`
+- Task 2: built the agent with Claude Code (`rag.py`, `agent.py`, tests); ran run_01–run_03 and gave the human feedback; README
+- Task 3: ran the retrieval experiments, the answer generation and the judge; `RESULTS.md`
+- Task 4: tool layer, sandbox and agent with Claude Code; mock and real agent runs; `RESULTS.md`
+- Repository, final checks and the submission ZIP
+- Video: presents Task 2
 
-## Nirav
-- Task 1: profile `content/nirav.md` and picture
-- TODO
+## Keval (4108929)
+- Task 1: hello world (`screenshots/hello_keval.png`); profile `content/keval.md` and picture
+- Reviewed the Task 1 website and the team's shared view
+- Video: presents the intro and Task 1 (using an agent: screenshots, session statistics, where the agent went wrong)
 
-## Harsh
-- Task 1: profile `content/harsh.md` and picture
-- TODO
+## Harsh (4108643)
+- Task 1: hello world (`screenshots/hello_harsh.png`); profile `content/harsh.md` and picture
+- Reviewed the Task 3 results: the per-category table, the failure analysis and the hand check of the judge decisions
+- Video: presents Task 3 (RAG comparison, failures, recommendation)
 
-## Keval
-- Task 1: profile `content/keval.md` and picture
-- TODO
+## Nevil (4110898)
+- Task 1: hello world (`screenshots/hello_nevil.png`); profile `content/nevil.md` and picture
+- Reviewed the Task 4 results: the tool list, the threat → control table, the agent trace and the prompt injections
+- Video: presents Task 4 (tools, containment, the real run and the untrusted content)
 
-## Nevil
-- Task 1: profile `content/nevil.md` and picture
-- TODO
+## Nirav (4090427)
+- Task 1: hello world (`screenshots/hello_nirav.png`); profile `content/nirav.md` and picture
+- Reviewed the Task 2 diagram and the lessons learned (`LESSONS_LEARNED.md`)
+- Video: presents the wrap-up (lessons learned, AI usage, who did what); merged the video parts
 
 ## Whole group
-- Shared view on AI and the future of software engineering (`content/_team.md`)
-- TODO: Task 3, Task 4, video
+- Shared view on AI and the future of software engineering (`task1_opencode/content/_team.md`)
+- Prompt ideas and feedback for the website (Task 1) and for the agent's human-feedback rounds (Task 2)
+- Video script and recording – every member presents one part
 
 ## AI usage
 - Task 1: OpenCode (`openai.gpt-6-luna`) wrote all HTML/CSS/JS. Claude Code helped with setup, `AGENTS.md`,
