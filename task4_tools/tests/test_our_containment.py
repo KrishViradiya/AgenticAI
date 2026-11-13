@@ -103,7 +103,7 @@ def test_edit_protected_or_missing_files(registry, workspace, path):
 
 def test_edit_keeps_line_endings(registry, workspace):
     target = workspace / "src" / "tinyledger" / "models.py"
-    target.write_bytes(target.read_bytes().replace(b"\n", b"\r\n"))
+    target.write_bytes(target.read_bytes().replace(b"\r\n", b"\n").replace(b"\n", b"\r\n"))  # CRLF, whatever the checkout had
     result = call(registry, "edit_file", path="src/tinyledger/models.py", old_str="from __future__ import annotations",
                   new_str="from __future__ import annotations  # edited")
     assert result.ok, result.error
