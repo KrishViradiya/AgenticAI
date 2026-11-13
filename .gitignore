@@ -1,5 +1,7 @@
+# Secrets: never commit or submit the real key. The template (placeholder only) is needed for "how to run".
 .env
 .env*
+!.env.example
 .venv/
 __pycache__/
 *.pyc
@@ -12,3 +14,16 @@ video/
 
 # Task 4: the agent's working copy (recreated by reset_workspace.py, not submitted)
 task4_tools/workspace/
+
+# Not part of the submission structure on the lab sheet (page 8)
+Lab1_Sheet.pdf
+hello-agent/
+/logs/
+*.zip
+
+# Editor / OS files
+.vscode/
+.idea/
+.claude/
+Thumbs.db
+.DS_Store
