@@ -1,188 +1,254 @@
 # Task 3 – RAG under the microscope: our results
 
-The task description and data formats are in [README.md](README.md) (given). This file is our report.
-All numbers come from the files in `results/` and can be reproduced with the commands at the end.
+> **In one sentence:** we compared five ways to *find* the right documentation pages for a question; a mix of
+> keyword search and meaning search, double-checked by a re-ranker, finds the most (**recall@5 0.767**), and with a
+> second search for multi-step questions it answers **88 %** of the judged questions correctly – without ever making
+> something up.
 
-## What we built
+The task description and data formats are in [README.md](README.md) (given). Every number here comes from the files in
+`results/` and can be reproduced (commands at the end). The charts are drawn from those files by `make_figures.py`.
 
-| | Retrieval | Code |
+| ✅ What the lab sheet asks for | Where in this file |
+|---|---|
+| R1–R5 implemented | [§2](#2-our-five-search-methods) |
+| per-category table, chunk-size comparison | [§3](#3-results-which-method-finds-the-right-documents), [§4](#4-chunk-size) |
+| end-to-end answers + judge, 10 judge decisions checked by hand | [§6](#6-from-search-to-answers), [§7](#7-can-we-trust-the-judge) |
+| cost and latency | [§8](#8-cost-and-speed) |
+| failure analysis (5 questions) | [§9](#9-failure-analysis-5-questions-our-best-system-gets-wrong) |
+| recommendation | [§10](#10-recommendation) |
+| test predictions | [§11](#11-test-predictions) |
+
+---
+
+## 1. The task in one picture
+
+| | |
+|---|---|
+| 📚 **Documents** | **932** pages about "PaderQueue", a fictional message queue: config pages (170), error codes (77), command line (36), release notes (14), incident reports (120), forum posts (500 – can be wrong!), runbooks (15) |
+| ❓ **Practice questions** | **150** with the correct answer and the pages that contain it – **30 per category** |
+| 🧪 **Test questions** | **100** without answers – we hand in predictions |
+
+The five question categories, with a real example each:
+
+| Category | Example question | What makes it hard |
 |---|---|---|
-| R1 | BM25 (`rank_bm25`) on the R3 chunks; tokenizer keeps identifiers whole **and** splits them (`pq-e4663` → `pq-e4663`, `pq`, `e4663`) | `retrievers.py: BM25Retriever` |
-| R2 | fixed-size chunks (128 tokens, 32 overlap) + embeddings | `chunking.py: fixed_chunks` |
-| R3 | recursive chunks (headings → paragraphs → lines → sentences, merged up to 128 tokens) + embeddings | `chunking.py: recursive_chunks` |
-| R4 | hybrid: `0.3 · BM25 + 0.7 · cosine`, both min-max normalised | `retrievers.py: HybridRetriever` |
-| R5 | R4 + **re-ranking** of the top 30 with `cross-encoder/ms-marco-MiniLM-L-6-v2`, blended `0.5 · cross-encoder + 0.5 · hybrid` | `retrievers.py: RerankRetriever` |
-| **deployed** | R5 + a **second retrieval round** for multi-hop questions (extension, see below) | `generate.py: two_hop_search` |
+| **identifier** | "In PaderQueue 4.x, what does `metrics.interval_s` default to?" | an exact name or code must be matched |
+| **paraphrase** | "…the part that holds back messages until a later point in time has too many waiting jobs… What is the name of this error?" | different words than the documentation (answer: the *scheduler* error PQ-E3246) |
+| **multi-hop** | "Which permanent fix does the documentation recommend for the error that caused incident INC-2024-183?" | needs **two** pages: the incident report names the error, the error page has the fix |
+| **version** | "What was the default value of `ingress.interval_s` in PaderQueue **2.x**?" | the 2.x and 4.x pages are almost identical |
+| **unanswerable** | "What is the default value of `spool.queue_capacity`?" | the answer is not in the documentation – the system must say so |
 
-Shared choices:
-- Every chunk starts with a metadata header `[type | title | version]`, e.g. `[config | ingress.interval_s (PaderQueue 2.x) | version 2.x]`.
-  This makes the version and the document type searchable and visible to the generator.
-- Embeddings: `kiconnect.qwen3-embedding-8b` from the gateway (4,096 dimensions); queries get the qwen3 instruction prefix.
-  Vectors are cached in `.cache/` (140 MB, not submitted).
-- Generator: `openai.gpt-6-luna`, top 8 chunks (~900 tokens), instructed to use only the excerpts, to trust official
-  pages over forum posts, to respect versions, and otherwise to answer exactly
-  *"The documentation does not contain this information."*
+**How we measure search quality:** **recall@5** = share of the needed pages that are among the top 5 results
+(1.0 = always found). **precision@5** = are they near the top. Both from the given `evaluate.py`.
 
-**No tuning on the reported questions without saying so.** The 150 dev questions are split by id into TUNE
-(odd ids) and HOLDOUT (even ids). The chunk size, the hybrid weight and the re-ranking blend were chosen on TUNE only.
-We report all 150 *and* HOLDOUT alone.
+**Fair testing:** the 150 questions are split by id into **TUNE** (odd) and **HOLDOUT** (even). Every setting was chosen
+on TUNE only; we report all questions *and* HOLDOUT alone – like practising with one exam and being tested with another.
 
-## 1. Retrieval: configurations × categories
+---
 
-recall@5 / precision@5 from `evaluate.py`, 120 answerable dev questions (`unanswerable` has no relevant documents).
+## 2. Our five search methods
 
-| config | identifier | paraphrase | multi-hop | version | **overall** |
+| | Method | In simple words | Code |
+|---|---|---|---|
+| **R1** | BM25 keyword search (on the same chunks as R3) | Ctrl+F that knows rare words matter | `retrievers.py: BM25Retriever` |
+| **R2** | fixed-size chunks (128 tokens, 32 overlap) + embeddings | "meaning" search, text cut every 128 tokens like a ruler | `chunking.py: fixed_chunks` |
+| **R3** | recursive chunks (headings → paragraphs → lines → sentences, up to 128 tokens) + embeddings | "meaning" search, text cut along its structure | `chunking.py: recursive_chunks` |
+| **R4** | hybrid: **0.3 × BM25 + 0.7 × cosine**, both scaled to 0–1 | ask both, combine the votes | `retrievers.py: HybridRetriever` |
+| **R5** | R4 + **re-ranking** of the top 30 with `cross-encoder/ms-marco-MiniLM-L-6-v2`, blended **0.5 × re-ranker + 0.5 × hybrid** | a second model reads question + page together and double-checks | `retrievers.py: RerankRetriever` |
+
+Design choices that matter:
+- **A label on every chunk:** `[config | ingress.interval_s (PaderQueue 2.x) | version 2.x]` – type, title and version are searchable and visible to the answer model.
+- **Identifiers in BM25:** `PQ-E4663` is kept whole **and** split (`pq-e4663`, `pq`, `e4663`), so an exact code scores very high.
+- **Scaling before mixing:** BM25 scores go up to ~30, cosine stays below 1 – without min-max scaling, BM25 would always win.
+- **Embeddings:** `kiconnect.qwen3-embedding-8b` (gateway, 4,096 numbers per text), cached in `.cache/` (140 MB, not submitted).
+- **Answer model:** `openai.gpt-6-luna` gets the top 8 chunks (≈ 900 tokens) and must answer only from them, trust official pages over forum posts, respect versions – or say exactly *"The documentation does not contain this information."*
+
+---
+
+## 3. Results: which method finds the right documents?
+
+![recall@5 per method, all questions and held-out half](results/figures/1_overall_recall.png)
+
+> 🏆 **R5 is best: 0.767** (0.716 on the held-out half) · R4 hybrid 0.704 · R1 keywords 0.646 · meaning search alone ≈ 0.59
+> ⚠️ The **re-ranker alone** (0.679) is *worse* than the hybrid without it – only the 50/50 blend helps.
+> ✅ Same ranking on the held-out half → the settings were not just fitted to the questions we report.
+
+### Who wins which kind of question?
+
+![recall@5 per method and question category](results/figures/2_recall_by_category.png)
+
+| Category | Winner | Why |
+|---|---|---|
+| **identifier** | 🟩 keywords **1.00** (meaning search 0.73) | a code like `PQ-E3441` is a rare token – decisive for BM25, while for embeddings all error codes look alike |
+| **paraphrase** | 🟩 meaning search **0.87** (keywords 0.37) | "holds back messages until later" shares no words with "scheduler", but means the same |
+| **multi-hop** | nobody (best 0.48) | the second page is never named in the question – one search can't find it (→ §6) |
+| **version** | 🟩 re-ranker **1.00** | it reads question and page *together* and notices "2.x" in both |
+
+<details><summary>Full table with precision@5 (all 120 answerable questions)</summary>
+
+recall@5 / precision@5
+
+| config | identifier | paraphrase | multi-hop | version | overall |
 |---|---|---|---|---|---|
-| R1 BM25 | **1.00** / 0.78 | 0.37 / 0.25 | **0.48** / 0.78 | 0.73 / 0.65 | 0.646 / 0.614 |
+| R1 BM25 | 1.00 / 0.78 | 0.37 / 0.25 | 0.48 / 0.78 | 0.73 / 0.65 | 0.646 / 0.614 |
 | R2 fixed + dense | 0.73 / 0.62 | 0.83 / 0.74 | 0.02 / 0.01 | 0.80 / 0.64 | 0.596 / 0.505 |
-| R3 recursive + dense | 0.73 / 0.64 | **0.87** / 0.76 | 0.02 / 0.02 | 0.73 / 0.63 | 0.588 / 0.512 |
-| R4 hybrid | **1.00** / 0.76 | 0.70 / 0.64 | 0.45 / 0.79 | 0.67 / 0.61 | 0.704 / **0.701** |
-| R5 pure re-ranking (blend 1.0) | 0.77 / 0.64 | 0.67 / 0.51 | 0.28 / 0.36 | **1.00** / 0.93 | 0.679 / 0.611 |
-| **R5** (blend 0.5) | 0.97 / 0.76 | 0.73 / 0.64 | 0.43 / 0.73 | 0.93 / 0.65 | **0.767** / 0.697 |
+| R3 recursive + dense | 0.73 / 0.64 | 0.87 / 0.76 | 0.02 / 0.02 | 0.73 / 0.63 | 0.588 / 0.512 |
+| R4 hybrid | 1.00 / 0.76 | 0.70 / 0.64 | 0.45 / 0.79 | 0.67 / 0.61 | 0.704 / 0.701 |
+| R5 pure re-ranking | 0.77 / 0.64 | 0.67 / 0.51 | 0.28 / 0.36 | 1.00 / 0.93 | 0.679 / 0.611 |
+| **R5 (blend 0.5)** | 0.97 / 0.76 | 0.73 / 0.64 | 0.43 / 0.73 | 0.93 / 0.65 | **0.767** / 0.697 |
 
-HOLDOUT only (60 questions never used for a choice): R1 0.595, R2 0.586, R3 0.586, R4 0.672, R5 pure 0.647,
-**R5 0.716** recall@5 – same order, so the choices did not just fit the tuning questions.
-Full tables: `results/retrieval_tables.md`.
+HOLDOUT only: R1 0.595 · R2 0.586 · R3 0.586 · R4 0.672 · R5 pure 0.647 · **R5 0.716**. All tables: `results/retrieval_tables.md`.
+</details>
 
-**Which approach wins where, and why**
-- **identifier → BM25.** Exact strings like `PQ-E3441` or `retention.batch_size` are rare tokens with a high IDF.
-  An embedding sees `PQ-E3441` and `PQ-E4934` as almost the same thing (0.73 vs 1.00).
-- **paraphrase → dense.** "the part that holds back messages until a later point in time" shares no words with
-  "scheduler", but has the same meaning (0.87 vs 0.37).
-- **multi-hop → nobody.** The question names only the first document ("the error that caused INC-2024-183"); the
-  second one is named only *inside* the first. One search can't find it. Dense search can't even find the first one:
-  all 120 postmortems read alike, only the number differs – BM25 matches the number.
-- **version → the cross-encoder.** It reads question and chunk together and notices "2.x" in both (1.00). Bi-encoders
-  and BM25 often return the 4.x page, which is almost identical.
-- **The hybrid gets the best of both** for identifier and paraphrase. **Pure re-ranking hurts**: the ms-marco
-  cross-encoder was trained on web search, can't tell `PQ-E3441` from `PQ-E4934`, and ranks forum threads above the
-  right error page. Blending it 50/50 with the hybrid score keeps the exact match and keeps most of the version gain.
+---
 
-### Hybrid weight (TUNE)
+## 4. Chunk size
 
-| BM25 weight | 0.0 | 0.1 | 0.2 | **0.3** | 0.4 | 0.5 | 0.6 | 0.7 | 0.8 | 0.9 | 1.0 |
-|---|---|---|---|---|---|---|---|---|---|---|---|
-| recall@5 | 0.589 | 0.613 | 0.677 | **0.734** | 0.710 | 0.710 | 0.726 | 0.710 | 0.694 | 0.694 | 0.694 |
-
-0.3 is the best recall and precision on TUNE. A small BM25 weight is enough because after min-max normalisation the
-top BM25 hit gets 1.0 when an identifier matches exactly, while the cosine scores of the top chunks are close together.
-
-### Re-ranking blend (TUNE)
-
-| cross-encoder share | 0.25 | **0.5** | 0.75 | 1.0 (pure) |
+| R3 chunk size (overlap 0) | chunks | avg. tokens | recall@5 | precision@5 |
 |---|---|---|---|---|
-| recall@5 | 0.766 | **0.815** | 0.766 | 0.710 |
+| 64 | 2,803 | 60 | 0.600 | 0.493 |
+| **128** (chosen on TUNE) | 1,315 | 109 | 0.588 | **0.512** |
+| 256 | 957 | 144 | 0.588 | 0.502 |
 
-## 2. Chunk size (R3)
+> **Chunk size hardly matters here**, because most pages are only 100–190 tokens – they fit into one chunk anyway.
+> 64 tokens helps version questions a little (the "Default" row of a config page becomes its own chunk), but more
+> fragments of the same page crowd the top 5 (lower precision).
 
-| chunk size (overlap 0) | chunks | avg tokens | identifier | paraphrase | multi-hop | version | overall |
+---
+
+## 5. How we chose the two settings
+
+![tuning curves for the hybrid weight and the re-ranker share](results/figures/3_tuning.png)
+
+- **R4 keyword share 0.3:** best recall on TUNE. A small share is enough: after scaling, an exact identifier match gets the full 1.0 from BM25.
+- **R5 re-ranker share 0.5:** best on TUNE (0.815); at 1.0 (re-ranker alone) it drops to 0.710.
+
+---
+
+## 6. From search to answers
+
+![answers judged correct, overall and for multi-hop questions](results/figures/4_answers_correct.png)
+
+The two best search methods (R4, R5) answered the same 50 practice questions (`judge.py --sample 50`):
+
+| system | identifier | paraphrase | version | unanswerable | multi-hop | **correct** | faithful |
 |---|---|---|---|---|---|---|---|
-| 64 | 2,803 | 60 | 0.70 | 0.87 | 0.00 | **0.83** | **0.600** / 0.493 |
-| **128** (chosen on TUNE) | 1,315 | 109 | 0.73 | 0.87 | 0.02 | 0.73 | 0.588 / **0.512** |
-| 256 | 957 | 144 | 0.73 | 0.87 | 0.02 | 0.73 | 0.588 / 0.502 |
+| R4 | 1.00 | 1.00 | 1.00 | 1.00 | 🟥 0.00 | 0.80 | 0.98 |
+| R5 | 1.00 | 1.00 | 1.00 | 1.00 | 🟥 0.00 | 0.80 | 1.00 |
+| **R5 + second search** | 1.00 | 1.00 | 1.00 | 1.00 | 🟩 **0.40** | 🏆 **0.88** | **1.00** |
 
-Chunk size changes little here, because most documents are short (100–190 tokens; only the 14 release notes are long).
-64-token chunks cut a config page into description / property table / "when to change it", so the
-"Default" row becomes its own chunk – good for version questions, worse for precision (more fragments of one page in the top 5).
-128 had the best TUNE score; on all dev questions 64 is 0.012 higher in recall – within noise for 120 questions.
+### The multi-hop problem and our fix
 
-## 3. End-to-end: 50 dev questions, judged by `judge.py --sample 50`
+| step | page needed | found by one search? |
+|---|---|---|
+| 1 | incident report INC-2024-183 → *"caused by **PQ-E4663**"* | ✅ the question names it |
+| 2 | error page PQ-E4663 → the fix | ❌ the question never says "PQ-E4663" |
 
-| system | identifier | paraphrase | multi-hop | version | unanswerable | **correct** | faithful | relevance | abstained |
-|---|---|---|---|---|---|---|---|---|---|
-| R4 | 1.00 | 1.00 | 0.00 | 1.00 | 1.00 | 0.80 | 0.983 | 0.608 | 40% |
-| R5 | 1.00 | 1.00 | 0.00 | 1.00 | 1.00 | 0.80 | 1.000 | 0.582 | 40% |
-| R5 + second round, v1 (chunk-level) | 1.00 | 1.00 | 0.25 | 1.00 | 1.00 | 0.85 | 1.000 | 0.603 | 34% |
-| **R5 + second round (deployed)** | 1.00 | 1.00 | **0.40** | 1.00 | 1.00 | **0.88** | 1.000 | 0.600 | 32% |
+**Second search (extension):** after the first search, take the codes and setting names found in the top pages
+(e.g. `PQ-E4663`) and search for each of them; add those chunks to the answer model's context.
+(Taking the codes from the *whole page*, not only the retrieved chunk, mattered: incident reports are split into two
+chunks, and "caused by …" is often in the other one – this raised multi-hop from 0.25 to 0.40.)
 
-(correctness per category; files `results/judge_*.jsonl`, `results/judge_summary_*.txt`)
+| multi-hop check | R5 | R5 + second search |
+|---|---|---|
+| judged questions answered correctly | 0 / 10 | **4 / 10** |
+| **20 questions we never looked at** – both pages in the context | 0 / 20 | **7 / 20** |
 
-**The second retrieval round (extension).** R4 and R5 failed *every* multi-hop question – the model correctly said
-"not in the documentation", because the second document never reached it. So after the first search we take the
-identifiers (error codes, incident ids, config keys) from the **whole documents** of the top 5 hits – documents that
-contain an identifier from the question first – and search for each of them (max 4 follow-ups, 2 chunks each).
-These chunks are added to the context only; the ranked document list (recall@5, test predictions) stays plain R5,
-because mixing the follow-ups into the top 5 raised multi-hop recall (0.43 → 0.55) but lowered overall recall
-(0.767 → 0.688).
+> ✅ It also works on questions we didn't use to design it → not overfitted.
+> The ranked list for recall@5 and the test predictions stays plain R5 (mixing the follow-ups into the top 5 helped
+> multi-hop, 0.43 → 0.55, but hurt overall, 0.767 → 0.688).
 
-We designed this on the 10 multi-hop questions of the judge sample, so we checked it on the **20 multi-hop dev
-questions we never looked at** (`results/two_hop_context_check.json`): both needed documents are in the context for
-0/20 with R5 and **7/20 with the second round** (4/10 on the seen ones) – it generalises.
+---
 
-## 4. Do we trust the judge? 10 decisions checked by hand
+## 7. Can we trust the judge?
+
+We checked **10 judge decisions by hand** (2 per category, deployed system):
 
 | id | category | answer (short) | judge | we agree? |
 |---|---|---|---|---|
-| dev004 | paraphrase | `dlq.max_retries` | correct | yes |
-| dev011 | paraphrase | `broker.timeout_ms` | correct | yes |
-| dev008 | identifier | defaults to `10` seconds | correct | yes (unit added, but it is in the doc) |
-| dev061 | identifier | name of the tenant the command applies to | correct | yes |
-| dev009 | version | `none` in 2.x | correct | yes |
-| dev033 | version | `60` seconds in 3.x | correct | yes |
-| dev013 | unanswerable | abstained | correct | yes |
-| dev054 | unanswerable | abstained | correct | yes |
-| dev025 | multi-hop | abstained | wrong | yes – the fix is in the documentation |
-| dev030 | multi-hop | abstained | wrong | yes |
+| dev004 | paraphrase | `dlq.max_retries` | correct | ✅ |
+| dev011 | paraphrase | `broker.timeout_ms` | correct | ✅ |
+| dev008 | identifier | defaults to `10` seconds | correct | ✅ (unit added, but it's in the docs) |
+| dev061 | identifier | name of the tenant the command applies to | correct | ✅ |
+| dev009 | version | `none` in 2.x | correct | ✅ |
+| dev033 | version | `60` seconds in 3.x | correct | ✅ |
+| dev013 | unanswerable | "not in the documentation" | correct | ✅ |
+| dev054 | unanswerable | "not in the documentation" | correct | ✅ |
+| dev025 | multi-hop | "not in the documentation" | wrong | ✅ the fix *is* documented |
+| dev030 | multi-hop | "not in the documentation" | wrong | ✅ |
 
-We agree with all 10 **correctness** verdicts. Two weaknesses of the other metrics:
-- **Answer relevance punishes correct abstentions** (0.32–0.40): for the abstention sentence the judge always writes the same
-  three generic questions ("What does the documentation say about the product's release schedule?") – it is the
-  identical prompt, so the gateway cache even returns the identical reply.
-- **Relevance rewards repeating the question**: dev061 is correct but scores 0.65; answers that restate the question score ~0.95.
+> ✅ **Correctness: trusted** – we agree 10 / 10.
+> ⚠️ **Answer relevance: not trusted** – honest "not in the documentation" answers get only **≈ 0.40** (single answers
+> 0.32–0.55) vs **0.70–0.79** for normal answers: the judge invents the same three generic questions for that sentence
+> (identical prompt → the gateway cache even returns the identical reply). Short correct answers also score lower than
+> wordy ones (dev061: 0.65).
 
-So we trust correctness and faithfulness for short factual answers, and treat relevance as a weak signal.
+---
 
-## 5. Cost and latency
+## 8. Cost and speed
 
-| | index build (first time) | search per query | tokens per query |
+| | build the index (first time) | search per question | tokens per question |
 |---|---|---|---|
-| R1 BM25 | 0.1 s chunking + 0.06 s index | 1.3 ms | 0 (local) |
-| R2 fixed + dense | 65 s embedding (1,327 chunks) | 0.4 ms + 0.26 s query embedding | ~42 embedding tokens |
-| R3 recursive + dense | 100 s embedding (1,315 chunks) | 0.5 ms + 0.26 s | ~42 |
-| R4 hybrid | both of the above | 3.3 ms + 0.26 s | ~42 |
-| R5 re-ranking | + 27 s to load the cross-encoder | **620 ms** (30 pairs on a laptop CPU) + 0.26 s | ~42 + 30 local cross-encoder pairs |
-| R5 + second round | same | ~1.5 s (up to 4 more searches) | ~200 embedding tokens |
+| R1 keywords | 0.2 s | **1.3 ms** | 0 (runs locally) |
+| R2 / R3 meaning | 65 s / 100 s embedding | 0.5 ms + **0.26 s** query embedding | ≈ 42 (embedding, free) |
+| R4 hybrid | both | **3.3 ms** + 0.26 s | ≈ 42 |
+| R5 + re-ranker | + 27 s to load the model | 🐢 **620 ms** + 0.26 s (30 pairs on a laptop CPU) | ≈ 42 + 30 local pairs |
+| R5 + second search | same | ≈ 1.5 s (up to 4 more searches) | ≈ 200 |
 
-Generation (gpt-6-luna): ~1,150 prompt + ~36 output tokens and ~2.3 s per answer for R4/R5; ~1,490 prompt tokens and
-~2.6 s with the second round (more context). Embeddings are free; generating 50 answers cost ~$0.008, judging 50
-answers ~$0.01, the 100 test predictions $0.021. The query embedding latency (mean 0.26 s, median 0.15 s) was measured
-with 20 single uncached calls. None of the 300 generation calls was a gateway cache hit (`cache_hit` in `logs/generate_*.jsonl`),
-so the generation times are real first-time latencies. Index embedding times vary with the gateway load (R3 has fewer chunks than R2 but took longer).
+**Answers:** ≈ 1,150 prompt tokens (R4/R5) or ≈ 1,490 (second search) + ≈ 40 output tokens, ≈ 2.5 s each.
+**Money:** embeddings are free; 50 answers ≈ $0.008, judging 50 answers ≈ $0.01, the 100 test predictions $0.021.
+None of the 300 answer calls was a gateway cache hit (`cache_hit` in `logs/generate_*.jsonl`) → real first-time latencies.
 
-## 6. Failure analysis: 5 questions our best system gets wrong
+---
 
-All wrong answers of the deployed system are **retrieval failures**. The generator never made something up
-(faithfulness 1.0): whenever the fact was missing, it abstained.
+## 9. Failure analysis: 5 questions our best system gets wrong
+
+> All wrong answers are **search (retrieval) failures**. The answer model never invented a fact (faithfulness 1.0):
+> whenever the fact was missing, it said so.
 
 | id | question (short) | what was in the context | failure | why |
 |---|---|---|---|---|
-| dev025 | fix for the error behind INC-2024-171 | the incident (names PQ-E1915), two chunks of the forum thread "PQ-E1915 after upgrade?" | retrieval (2nd hop) | the follow-up search for `PQ-E1915` returns the forum thread first; it fills both slots, the error page never gets in |
-| dev030 | fix for the error behind INC-2025-175 | the incident (names PQ-E2617), forum "PQ-E2617 after upgrade?" | retrieval (2nd hop) | same pattern: forum threads titled with the code outrank the official error page |
-| dev042 | current default of the setting PQ-E2051 tells you to change | six forum threads about various error codes, no error page | retrieval (1st hop) | the official page `PQ-E2051 COMPACTOR_CODEC_MISMATCH` is not even in the first round – forum threads with the code in the title win |
-| dev069 | current default of the setting PQ-E4020 tells you to change | error page (says: change `spool.compression`) **and** the page of `spool.compression` – but the **2.x** version | retrieval (version) | the follow-up query `spool.compression` has no version, so the 2.x page ranked above the 4.x page; the model rightly refused to give a "current" default from a 2.x page |
-| dev083 | fix for the error behind INC-2024-147 | the incident (names PQ-E2051), forum thread on PQ-E2051 | retrieval (2nd hop) | same as dev025 |
+| dev025 | fix for the error behind INC-2024-171 | the incident (names PQ-E1915) + forum thread "PQ-E1915 after upgrade?" | 🔎 retrieval (2nd hop) | the follow-up search for `PQ-E1915` finds the forum thread first; it fills both slots, the error page never gets in |
+| dev030 | fix for the error behind INC-2025-175 | the incident (names PQ-E2617) + forum "PQ-E2617 after upgrade?" | 🔎 retrieval (2nd hop) | same: forum threads titled with the code outrank the official page |
+| dev042 | current default of the setting PQ-E2051 says to change | six forum threads, no error page | 🔎 retrieval (1st hop) | the official page `PQ-E2051` isn't even in the first round – forum threads with the code in the title win |
+| dev069 | current default of the setting PQ-E4020 says to change | the error page **and** the `spool.compression` page – but the **2.x** one | 🔎 retrieval (version) | the follow-up query has no version, so the 2.x page beat the 4.x page; the model rightly refused to call a 2.x value "current" |
+| dev083 | fix for the error behind INC-2024-147 | the incident (names PQ-E2051) + its forum thread | 🔎 retrieval (2nd hop) | same as dev025 |
 
-**What would fix it:** prefer official documents over forum threads when they match equally (a small type prior, or
-re-rank follow-up results with the doc type), take more follow-up chunks per identifier, and add "4.x" to follow-up
-queries for config keys when the question asks for the *current* value.
+**What would fix it:** prefer official pages over forum threads when they match equally; take more follow-up chunks
+per code; add "4.x" to follow-up searches when the question asks for the *current* value.
 
-## 7. Recommendation
+---
 
-**Deploy R5 + the second retrieval round** (BM25 0.3 + dense on 128-token recursive chunks, cross-encoder blended 50/50,
-plus follow-up searches for identifiers). It has the best recall@5 (0.767, HOLDOUT 0.716) and the best answers
-(0.88 correct, faithfulness 1.0, never invents an answer).
+## 10. Recommendation
 
-If latency matters more than the last few percent, **R4** is the pragmatic choice: same answer correctness as R5
-without the second round (0.80), 3 ms instead of 620 ms of search, and no 27 s model load. The cross-encoder is what
-makes R5 slow; on a GPU or with a smaller pool it would be cheap.
+> 🏆 **Deploy R5 + second search:** hybrid (0.3 keywords + 0.7 meaning) on 128-token structure chunks, re-ranker
+> blended 50/50, plus follow-up searches for codes found in the first results.
+> → best search (recall@5 **0.767**, held-out **0.716**) and best answers (**88 %** correct, never invents).
+>
+> ⚡ **If speed matters more: R4** – 3 ms instead of 620 ms per search, no 27 s model load, same correctness as R5
+> without the second search (80 %). On a GPU or with a smaller shortlist the re-ranker would be cheap.
 
-Next steps, in order of value: (1) official-over-forum preference in the follow-up search; (2) version-aware follow-ups;
-(3) a re-ranker that handles identifiers (or skip re-ranking when the query contains an exact code).
+Next steps, most valuable first: official-over-forum preference in the follow-up search · version-aware follow-ups ·
+a re-ranker that understands codes (or skip re-ranking when the question contains an exact code).
 
-## Test predictions
+---
 
-`predictions_test.jsonl`: 100 lines `{id, answer, retrieved_doc_ids}` (5 documents each) with the deployed system.
-36 of 100 answers are abstentions (dev sample: 32%).
+## 11. Test predictions
+
+`predictions_test.jsonl`: 100 lines `{id, answer, retrieved_doc_ids}` (5 pages each) from the deployed system.
+36 of 100 answers are "not in the documentation" (practice sample: 32 %).
+
+---
+
+## A bug we found on the way
+
+The first results said 256-token chunks were terrible (**recall 0.19**). That made no sense – most pages fit into one
+chunk anyway. The cause: when an embedding batch mixed texts the gateway had **cached** with new ones, the gateway
+returned the vectors **in the wrong order** (even the `index` field was wrong: `[0, 1, 1, 3, 2, 5]`). Our four
+chunkings share many identical chunks, so this happened constantly. Fix in `common/llm_client.py`: embedding requests
+bypass the gateway cache. Afterwards 256-token chunks scored 0.588, like the others; Task 2's vectors were checked and correct.
+
+---
 
 ## How to run
 
@@ -190,32 +256,25 @@ From the repository root (gateway key in `.env`, university network or VPN; R5 n
 
 ```bash
 uv run python task3_rag/chunking.py                                   # chunk statistics
-uv run python task3_rag/run_retrieval.py                              # R1–R5, chunk sizes, weights -> results/
+uv run python task3_rag/run_retrieval.py                              # R1–R5, chunk sizes, tuning -> results/
 uv run python task3_rag/evaluate.py task3_rag/results/retrieval_R5_dev.jsonl --k 5
 uv run python task3_rag/generate.py --system R5 --two-hop --split dev --sample 50   # results/answers_R5_2hop.jsonl
 uv run python task3_rag/judge.py task3_rag/results/answers_R5_2hop.jsonl --sample 50 --out task3_rag/results/judge_R5_2hop.jsonl
 uv run python task3_rag/generate.py --system R5 --two-hop --split test           # predictions_test.jsonl
+uv run --with matplotlib python task3_rag/make_figures.py             # the charts in results/figures/
 ```
 
-The first run embeds the corpus four times (~5 minutes); later runs use the cache.
-
-## Files
+The first run embeds the corpus four times (≈ 5 minutes); later runs use the cache.
 
 | file | content |
 |---|---|
-| `chunking.py` | fixed-size and recursive chunking, metadata header |
+| `chunking.py` | fixed-size and recursive chunking, the label on every chunk |
 | `retrievers.py` | BM25 tokenizer, BM25 / dense / hybrid / re-ranking retrievers, embedding cache |
 | `run_retrieval.py` | builds and evaluates everything, TUNE/HOLDOUT split, writes `results/` |
-| `generate.py` | answers (with or without the second round) and the test predictions |
-| `results/retrieval_*_dev.jsonl`, `metrics_*.json` | retrieval results and `evaluate.py` output per config |
-| `results/retrieval_report.json`, `retrieval_tables.md` | all tables, weight grids, timings |
+| `generate.py` | answers (with or without the second search) and the test predictions |
+| `make_figures.py` | the four charts in `results/figures/` |
+| `results/retrieval_*_dev.jsonl`, `metrics_*.json` | retrieval results and `evaluate.py` output per method |
+| `results/retrieval_report.json`, `retrieval_tables.md` | all tables, tuning grids, timings |
 | `results/answers_*.jsonl`, `judge_*.jsonl`, `judge_summary_*.txt` | generated answers and judge results |
 | `results/two_hop_context_check.json` | the check on unseen multi-hop questions |
 | `logs/` | every gateway call (generation, judge) |
-
-## A bug we found on the way
-
-The first results said 256-token chunks were terrible (recall 0.19). The cause was not chunking: when an embedding
-batch mixes texts the gateway has cached with new ones, the gateway returns the vectors **in the wrong order and with
-wrong `index` fields**. Our four chunkings share many identical chunks, so this happened a lot. We fixed it in
-`common/llm_client.py` (embedding requests now bypass the gateway cache) and checked that Task 2's index was not affected.
